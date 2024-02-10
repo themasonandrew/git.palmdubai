@@ -3,7 +3,6 @@ tabs:
         date:
             tab: Основное
             commentAbove: 'Дата публикации'
-            mode: date
             span: full
             type: datepicker
         short:
