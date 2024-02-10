@@ -1,0 +1,25 @@
+plugin:
+    name: 'piggy.catalog::lang.plugin.name'
+    description: 'piggy.catalog::lang.plugin.description'
+    author: Piggy
+    icon: oc-icon-building
+    homepage: ''
+navigation:
+    catalog:
+        label: Каталог
+        url: piggy/catalog/apparts
+        icon: icon-slideshare
+        order: '900'
+        sideMenu:
+            catalog-apparts:
+                label: 'Аппартаменты'
+                url: piggy/catalog/apparts
+                icon: icon-slideshare
+            catalog-builds:
+                label: 'Новостройки'
+                url: piggy/catalog/builds
+                icon: icon-windows
+            catalog-places:
+                label: Места
+                url: piggy/catalog/places
+                icon: icon-sitemap

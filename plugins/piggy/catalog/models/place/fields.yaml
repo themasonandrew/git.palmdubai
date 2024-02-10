@@ -1,0 +1,18 @@
+fields:
+    title:
+        commentAbove: Название
+        span: auto
+        type: text
+        required: true
+    slug:
+        commentAbove: Ссылка
+        span: auto
+        type: text
+        required: true
+        preset:
+            field: title
+            type: slug
+    active:
+        label: Активно
+        span: auto
+        type: switch

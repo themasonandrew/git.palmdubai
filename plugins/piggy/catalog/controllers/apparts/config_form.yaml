@@ -1,0 +1,10 @@
+name: Apparts
+form: $/piggy/catalog/models/appart/fields.yaml
+modelClass: Piggy\Catalog\Models\Appart
+defaultRedirect: piggy/catalog/apparts
+create:
+    redirect: 'piggy/catalog/apparts/update/:id'
+    redirectClose: piggy/catalog/apparts
+update:
+    redirect: piggy/catalog/apparts
+    redirectClose: piggy/catalog/apparts

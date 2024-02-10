@@ -1,0 +1,10 @@
+name: Places
+form: $/piggy/catalog/models/place/fields.yaml
+modelClass: Piggy\Catalog\Models\Place
+defaultRedirect: piggy/catalog/places
+create:
+    redirect: 'piggy/catalog/places/update/:id'
+    redirectClose: piggy/catalog/places
+update:
+    redirect: piggy/catalog/places
+    redirectClose: piggy/catalog/places

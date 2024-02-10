@@ -1,0 +1,10 @@
+name: Builds
+form: $/piggy/catalog/models/build/fields.yaml
+modelClass: Piggy\Catalog\Models\Build
+defaultRedirect: piggy/catalog/builds
+create:
+    redirect: 'piggy/catalog/builds/update/:id'
+    redirectClose: piggy/catalog/builds
+update:
+    redirect: piggy/catalog/builds
+    redirectClose: piggy/catalog/builds

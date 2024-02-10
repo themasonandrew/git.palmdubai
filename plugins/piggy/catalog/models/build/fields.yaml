@@ -1,0 +1,69 @@
+tabs:
+    fields:
+        gallery:
+            tab: Основное
+            commentAbove: Галерея
+            span: full
+            type: fileupload
+            mode: image
+        address:
+            tab: Основное
+            commentAbove: Адрес
+            span: full
+            type: text
+        short:
+            tab: Основное
+            commentAbove: 'Короткое описание'
+            span: full
+            type: textarea
+            size: small
+        seo_title:
+            tab: SEO
+            commentAbove: Seo Title
+            span: full
+            type: text
+            attributes:
+                maxlength: '1000'
+        seo_description:
+            tab: SEO
+            commentAbove: Seo Description
+            span: full
+            type: text
+            attributes:
+                maxlength: '1000'
+        seo_robots:
+            tab: SEO
+            commentAbove: Seo Robots
+            span: auto
+            type: text
+            attributes:
+                maxlength: '1000'
+        seo_keywords:
+            tab: SEO
+            commentAbove: Seo Keywords
+            span: auto
+            type: text
+            attributes:
+                maxlength: '1000'
+fields:
+    title:
+        commentAbove: Название
+        span: auto
+        type: text
+        required: true
+    slug:
+        commentAbove: Ссылка
+        span: auto
+        type: text
+        required: true
+        preset:
+            field: title
+            type: slug
+    active:
+        label: Активно
+        span: auto
+        type: switch
+    new:
+        label: В списке "Новых"
+        span: auto
+        type: switch

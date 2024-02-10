@@ -1,0 +1,133 @@
+uuid: 2275f030-529c-458a-81c0-3e0e7c017d06
+handle: Config\Content
+type: global
+name: Контент
+drafts: false
+
+navigation:
+    parent: Config\Main
+    icon: icon-heart
+    order: 2
+
+fields:
+    ##
+    gallery:
+        tab: Галерея
+        type: nestedform
+        showPanel: false
+        form:
+            fields:
+                title:
+                    commentAbove: Заголовок секции
+                    span: auto
+                    type: text
+                title_dop:
+                    commentAbove: Доп. заголовок секции
+                    span: auto
+                    type: text
+                subtitle:
+                    commentAbove: Подзаголовок секции
+                    span: full
+                    type: text
+                    attributes:
+                        maxlength: '1000'
+                list:
+                    type: repeater
+                    form:
+                        fields:
+                            title:
+                                commentAbove: Название
+                                span: full
+                                type: text
+                            image:
+                                commentAbove: Изображение
+                                span: full
+                                type: fileupload
+                                mode: image
+                                maxFiles: 1
+    ##
+    reviews:
+        tab: Отзывы
+        type: nestedform
+        showPanel: false
+        form:
+            fields:
+                title:
+                    commentAbove: Заголовок секции
+                    span: full
+                    type: text
+                subtitle:
+                    commentAbove: Подзаголовок секции
+                    span: full
+                    type: text
+                    attributes:
+                        maxlength: '1000'
+                list:
+                    type: repeater
+                    form:
+                        fields:
+                            title:
+                                commentAbove: Название
+                                span: full
+                                type: text
+                            image:
+                                commentAbove: Изображение
+                                span: full
+                                type: fileupload
+                                mode: image
+                                maxFiles: 1
+                            percent:
+                                commentAbove: Процент (+...%)
+                                span: auto
+                                type: text
+                            text:
+                                commentAbove: Текст для процента
+                                span: auto
+                                type: text
+    ##
+    features:
+        tab: Преимущества
+        type: nestedform
+        showPanel: false
+        form:
+            fields:
+                title:
+                    commentAbove: Заголовок секции
+                    span: full
+                    type: text
+                subtitle:
+                    commentAbove: Подзаголовок секции
+                    span: full
+                    type: text
+                    attributes:
+                        maxlength: '1000'
+                list:
+                    type: repeater
+                    form:
+                        fields:
+                            title:
+                                commentAbove: Название
+                                span: full
+                                type: text
+                            image:
+                                commentAbove: Изображение
+                                span: full
+                                type: fileupload
+                                mode: image
+                                maxFiles: 1
+    ##
+    about:
+        tab: About
+        type: nestedform
+        showPanel: false
+        form:
+            fields:
+                title:
+                    commentAbove: Заголовок секции
+                    span: full
+                    type: text
+                text:
+                    commentAbove: Текст
+                    span: full
+                    type: richeditor
+                    size: giant

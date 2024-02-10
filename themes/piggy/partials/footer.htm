@@ -1,0 +1,48 @@
+<footer class="sFooter">
+	<div class="container">
+		<div class="sFooter__block">
+			<a href="#" class="sLogo">
+				<img src="{{ configMain.company.logo.path }}" alt="Palm Jumeiran Logo">
+				<span>Palm Jumeiran</span>
+			</a>
+			<span class="sFooter__block-title">Контакты</span>
+			<p class="sFooter__block-text">{{ configMain.company.address }} <br><a href="mailto:{{ configMain.company.email }}">{{ configMain.company.email }}</a></p>
+			<div class="sFooter__block-connect">
+				<div class="sSocials">
+					{% for item in configMain.socials %}
+					<a href="{{ item.url }}" class="sSocials__item {{ item.css }}" title="{{ item.title }}"></a>
+					{% endfor %}
+				</div>
+				<div class="sContacts">
+					<div class="sContacts__worktime">Звоните <span>{{ configMain.company.worktime }}</span></div>
+					<a href="tel:{{ configMain.company.phone }}" class="sContacts__phone">{{ configMain.company.phone }}</a>
+				</div>
+			</div>
+			<p class="sFooter__block-copy">{{ 'now'|date('Y') }} © All rights reserved.</p>
+		</div>
+		<div class="sFooter__block">
+			<span class="sFooter__block-title">Меню</span>
+			<ul class="sFooter__block-list">
+				{% for item in configMain.navigation %}
+				<li><a href="{{ item.url }}">{{ item.title }}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="sFooter__block">
+			<span class="sFooter__block-title">Новостройки</span>
+			<ul class="sFooter__block-list">
+				{% for item in buildsList %}
+				<li><a href="{{ item.slug }}">{{ item.title }}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="sFooter__block">
+			<span class="sFooter__block-title">Аппартаменты</span>
+			<ul class="sFooter__block-list">
+				{% for item in appartsList %}
+				<li><a href="{{ item.slug }}">{{ item.title }}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</footer>

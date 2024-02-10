@@ -1,0 +1,345 @@
+url = "/"
+layout = "default"
+title = "Home"
+meta_title = "Home"
+meta_description = "Home"
+
+[viewBag]
+sitemapActive = 1
+sitemapPriority = 1.0
+sitemapChangefreq = "daily"
+==
+<?php
+	use Piggy\Catalog\Models\Appart;
+	use Piggy\Catalog\Models\Build;
+
+	function onStart() {
+		$appartsList = Appart::query()->where('active', true)->orderBy('sort_order')->get();
+		$this['appartsList'] = $appartsList;
+
+		$buildsList = Build::query()->where('active', true)->orderBy('sort_order')->get();
+		$this['buildsList'] = $buildsList;
+
+		$buildsListNew = Build::query()->where('active', true)->where('new', true)->orderBy('sort_order')->get();
+		$this['buildsListNew'] = $buildsListNew;
+	}
+?>
+==
+<section class="sMap">
+	<div class="sMap__wrap">
+		<svg viewBox="0 0 2150 1080" preserveAspectRatio="xMidYMid slice">
+			<!-- defs -->
+			<defs>
+				<mask id="visual-canvas__hole">
+					<rect fill="white" width="100%" height="100%"></rect>
+					<!-- builds -->
+					<path d="M638.5,678.5l53-22v-5.3l-12-9.7l-6,1 c0,0-8-2-10-10s-4-30-5-65l-10-10l-8,4c0,0,5.1,33,7.1,49.5c0.8,6.9,1.7,18.1,0.9,25.5c-1.1,10.4-4.8,16.4-10,20l-11,5v6 L638.5,678.5z" />
+					<polygon points="766.5,149.5 766.5,137.5 775.5,132.5 780.5,134.5 780.5,138.8 787.5,140.5 787.5,153.3 779.5,158.5 773.5,155.5 773.5,151.5 " />
+					<polygon points="1316.5,221.5 1316.5,208.1 1325.5,203.5 1332.5,206.5 1332.5,200.1 1338.5,196.5 1350.5,200.5 1350.5,208.5 1356.5,205.5 1368.5,209.5 1368.5,224.1 1361.5,229.5 1359.4,229.5 1355.5,235.5 1341.5,230.5 1341.5,221.5 1336.5,219.5 1333.5,221.5 1333.5,222.5 1323.5,226.5 " />
+					<polygon points="1735.5,756.5 1736.5,743.5 1727.5,736.5 1713.5,744.5 1710.5,757.5 1706.5,756.5 1700.5,766.5 1698.5,780.5 1714.5,784.5 1716.5,784.5 1723.5,772.5 1723.5,765.5 " />
+					<polygon points="1425.5,952.5 1425.5,941.7 1468.5,932.5 1476.5,946.5 1476.5,956.5 1433.5,965.5 " />
+
+					<polygon points="590.5,210.5 580.5,204.5 580.5,194.5 593.5,187.5 599.5,190.5 599.5,185.5 613.5,179.5 619.5,181.5  619.5,170.2 648.5,157.5 658.5,162.5 659.5,180.5 630.5,192.5 625.5,189.5 625.5,194.5 610.5,201.5 606.5,198.5 606.5,202.5 " />
+					<polygon points="661.5,154.5 697.5,150.5 699.5,156.5 699.5,172.5 664.5,179.5 662.5,175.5 " />
+					<polygon points="600.5,212.5 607.5,208.5 610.1,208.5 617.5,203.5 619.5,204.5 627.5,199.5 629.5,199.5 636.5,195.5  638.3,195.5 646.5,190.5 648.3,190.5 656.5,186.5 657.5,186.5 664.5,182.5 670.5,185.5 670.5,189.5 664.5,192.5 662.5,192.5  655.5,196.5 653.5,196.5 645.5,201.5 644.5,201.5 635.5,206 634.5,205.5 626.5,210.5 624.5,210.5 617.5,214.5 615.3,214.5  607.5,219.5 600.5,215.9 " />
+				</mask>
+				<image id="cloud1" x="0" y="0" width="500px" height="500px" xlink:href="{{ '/assets/img/cloud1.png'|theme }}" />
+				<image id="cloud2" x="0" y="0" width="500px" height="500px" xlink:href="{{ '/assets/img/cloud2.png'|theme }}" />
+				<image id="cloud3" x="0" y="0" width="500px" height="500px" xlink:href="{{ '/assets/img/cloud3.png'|theme }}" />
+			</defs>
+			<!-- image -->
+			<image class="sMap__wrap-image" x="0" y="0" width="100%" height="100%" xlink:href="{{ '/assets/img/map.jpg'|theme }}"></image>
+
+			<!-- builds -->
+			<path class="sMap__wrap-build" data-fx-tooltip data-build="1" d="M638.5,678.5l53-22v-5.3l-12-9.7l-6,1 c0,0-8-2-10-10s-4-30-5-65l-10-10l-8,4c0,0,5.1,33,7.1,49.5c0.8,6.9,1.7,18.1,0.9,25.5c-1.1,10.4-4.8,16.4-10,20l-11,5v6 L638.5,678.5z" />
+			<polygon class="sMap__wrap-build" data-fx-tooltip data-build="2" points="590.5,210.5 580.5,204.5 580.5,194.5 593.5,187.5 599.5,190.5 599.5,185.5 613.5,179.5 619.5,181.5  619.5,170.2 648.5,157.5 658.5,162.5 659.5,180.5 630.5,192.5 625.5,189.5 625.5,194.5 610.5,201.5 606.5,198.5 606.5,202.5 " />
+			<polygon class="sMap__wrap-build" data-fx-tooltip data-build="2" points="661.5,154.5 697.5,150.5 699.5,156.5 699.5,172.5 664.5,179.5 662.5,175.5 " />
+			<polygon class="sMap__wrap-build" data-fx-tooltip data-build="2" points="600.5,212.5 607.5,208.5 610.1,208.5 617.5,203.5 619.5,204.5 627.5,199.5 629.5,199.5 636.5,195.5  638.3,195.5 646.5,190.5 648.3,190.5 656.5,186.5 657.5,186.5 664.5,182.5 670.5,185.5 670.5,189.5 664.5,192.5 662.5,192.5  655.5,196.5 653.5,196.5 645.5,201.5 644.5,201.5 635.5,206 634.5,205.5 626.5,210.5 624.5,210.5 617.5,214.5 615.3,214.5  607.5,219.5 600.5,215.9 " />
+			<polygon class="sMap__wrap-build" data-fx-tooltip data-build="3" points="766.5,149.5 766.5,137.5 775.5,132.5 780.5,134.5 780.5,138.8 787.5,140.5 787.5,153.3 779.5,158.5 773.5,155.5 773.5,151.5 " />
+			<polygon class="sMap__wrap-build" data-fx-tooltip data-build="4" points="1316.5,221.5 1316.5,208.1 1325.5,203.5 1332.5,206.5 1332.5,200.1 1338.5,196.5 1350.5,200.5 1350.5,208.5 1356.5,205.5 1368.5,209.5 1368.5,224.1 1361.5,229.5 1359.4,229.5 1355.5,235.5 1341.5,230.5 1341.5,221.5 1336.5,219.5 1333.5,221.5 1333.5,222.5 1323.5,226.5 " />
+			<polygon class="sMap__wrap-build" data-fx-tooltip data-build="5" points="1735.5,756.5 1736.5,743.5 1727.5,736.5 1713.5,744.5 1710.5,757.5 1706.5,756.5 1700.5,766.5 1698.5,780.5 1714.5,784.5 1716.5,784.5 1723.5,772.5 1723.5,765.5 " />
+			<polygon class="sMap__wrap-build" data-fx-tooltip data-build="6" points="1425.5,952.5 1425.5,941.7 1468.5,932.5 1476.5,946.5 1476.5,956.5 1433.5,965.5 " />
+			<!-- clouds -->
+			<use href="#cloud1" x="2150" y="30">
+				<!-- Анимация с использованием animateTransform -->
+				<animateTransform
+					attributeName="transform"
+					type="translate"
+					values="0 0; -3000 0"
+					dur="100s"
+					repeatCount="indefinite" />
+			</use>
+			<use href="#cloud2" x="-500" y="-100">
+				<!-- Анимация с использованием animateTransform -->
+				<animateTransform
+					attributeName="transform"
+					type="translate"
+					values="0 0; 2200 0"
+					dur="100s"
+					repeatCount="indefinite" />
+			</use>
+			<use href="#cloud3" x="2450" y="700">
+				<!-- Анимация с использованием animateTransform -->
+				<animateTransform
+					attributeName="transform"
+					type="translate"
+					values="0 0; -3000 0"
+					dur="100s"
+					repeatCount="indefinite" />
+			</use>
+			<!-- overlay -->
+			<rect class="sMap__wrap-overlay" width="100%" height="100%" fill-opacity="1" mask="url(#visual-canvas__hole)"></rect>
+		</svg>
+	</div>
+	<div class="container">
+		<div class="sMap__caption">
+			<h1 class="sMap__caption-title">Недвижимость <br>на Palm Jumeiran</h1>
+			<span class="sMap__caption-city">Дубаи</span>
+		</div>
+	</div>
+</section>
+<!-- sHotels -->
+{% if buildsList|length %}
+<section data-styles="overflow">
+	<div class="container">
+		<div class="sDoubleTitle">
+			<div class="sDoubleTitle__title">
+				<h2 class="sTitle"><span>Новостройки</span></h2>
+				<p class="sSubtitle">Найдите недвижимость на побережье Персидского заливана знаменитом острове Пальма Джумейра для комфортной красивой жизни и инвестиций</p>
+			</div>
+			<div class="sDoubleTitle__action">
+				<div class="sArrows">
+					<button class="sArrows__item prev sHotelsPrev"></button>
+					<button class="sArrows__item next sHotelsNext"></button>
+				</div>
+			</div>
+		</div>
+		<div class="sHotels swiper">
+			<div class="swiper-wrapper">
+				{% for item in buildsList %}
+				<a href="#" class="sHotels__item swiper-slide">
+					<picture class="imageArea">
+						<img src="{{ item.gallery[0].path }}" alt="{{ item.title }}">
+					</picture>
+					<div class="sHotels__item-content">
+						<h3 class="sTitle" data-styles="cb fz2">{{ item.title }}</h3>
+						<p class="sHotels__item-description">{{ item.short }}</p>
+						<span class="sPrice" data-fx-currency>11500</span>
+					</div>
+				</a>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+{% endif %}
+{% if buildsListNew|length %}
+<section>
+	<div class="container">
+		<div class="sDoubleTitle">
+			<div class="sDoubleTitle__title">
+				<h2 class="sTitle" data-styles="capt"><mark>30</mark> <span>новых небоскребов <br>в <mark>Palm Jumeira</mark></span></h2>
+			</div>
+			<div class="sDoubleTitle__action">
+				<a href="#" class="sButton">Посмотреть все</a>
+			</div>
+		</div>
+		<div class="sTowers">
+			{% for item in buildsListNew %}
+			<a href="#" class="sTowers__item">
+				<picture class="imageArea">
+					<img src="{{ item.gallery[0].path }}" alt="{{ item.title }}">
+				</picture>
+				<div class="sTowers__item-content">
+					<h3 class="sTitle" data-styles="cb fzs">{{ item.title }}</h3>
+				</div>
+			</a>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+{% endif %}
+{% if appartsList|length %}
+<section>
+	<div class="container">
+		<div class="sDoubleTitle" data-styles="spectext">
+			<div class="sDoubleTitle__title">
+				<h2 class="sTitle" data-styles="capt"><mark>Январь</mark> <span>лучшие <br>предложения</span></h2>
+				<p class="sSubtitle">Найдите недвижимость на побережье Персидского залива на знаменитом острове Пальма Джумейра для комфортнойи красивой жизни и инвестиций</p>
+			</div>
+			<div class="sDoubleTitle__action">
+				<div class="sTitle" data-styles="capt spansmall"><mark>125</mark> <span>Объектов были <br>выделены самыми <br>высокими баллами</span></div>
+			</div>
+		</div>
+		<div class="sApparts">
+			{% for item in appartsList %}
+			<a href="{{ item.slug }}" class="sApparts__item" data-fx-clone="2">
+				<picture class="imageArea">
+					<img src="{{ item.gallery[0].path }}" alt="">
+				</picture>
+				<div class="sApparts__item-content">
+					<h3 class="sTitle" data-styles="cb fzs">{{ item.title }}</h3>
+					<p class="sApparts__item-description">{{ item.short }}</p>
+					<div class="sParams">
+						<li class="sParams__item thisArea">{{ item.param_area }}</li>
+						<li class="sParams__item thisBed">{{ item.param_bed }}</li>
+						<li class="sParams__item thisLoc">{{ item.param_loc }}</li>
+					</div>
+					<div class="sApparts__item-bottom">
+						<div class="sPrice" data-styles="fz3" data-fx-currency>{{ item.price }}</div>
+					</div>
+				</div>
+			</a>
+			{% endfor %}
+		</div>
+		<a href="#" class="sButton" data-styles="more">Посмотреть все</a>
+	</div>
+</section>
+{% endif %}
+<section data-styles="overflow">
+	<div class="container">
+		<div class="sCallback">
+			<form action="#" class="sCallback__form">
+				<h2 class="sTitle" data-styles="fz1"><span>Полный каталог новостроек на <mark>Palm Jumeirah</mark> для жизни и инвестирования</span></h2>
+				<div class="sCallback__form-body">
+					<input type="text" placeholder="Ваше имя">
+					<input type="tel" placeholder="Номер телефона">
+					<button type="submit" class="sButton">Получить каталог</button>
+				</div>
+				<p class="sCallback__form-rules">Отправляя данную форму вы соглашаетесь с политикой конфиденциальности</p>
+			</form>
+			<div class="sCallback__image">
+				<img src="{{ '/assets/img/book.png'|theme }}" alt="">
+			</div>
+		</div>
+	</div>
+</section>
+{% if configContent.gallery.list|length %}
+<section>
+	<div class="container">
+		<div class="sDoubleTitle">
+			<div class="sDoubleTitle__title">
+				<h2 class="sTitle" data-styles="capt"><mark>{{ configContent.gallery.title }}</mark> <span>{{ configContent.gallery.title_dop|raw }}</span></h2>
+				<p class="sSubtitle">{{ configContent.gallery.subtitle }}</p>
+			</div>
+		</div>
+		<div class="sGallery">
+			{% for item in configContent.gallery.list %}
+			<a href="#" data-fancybox="gallery" data-src="{{ item.image.path }}" data-caption="{{ item.title }}" class="sGallery__item">
+				<picture class="imageArea">
+					<img src="{{ item.image.path }}" loading="lazy" alt="{{ item.title }}">
+				</picture>
+			</a>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+{% endif %}
+{% if configContent.reviews.list|length %}
+<section data-styles="overflow">
+	<div class="container">
+		<div class="sDoubleTitle">
+			<div class="sDoubleTitle__title">
+				<h2 class="sTitle"><span>{{ configContent.features.title }}</span></h2>
+				<p class="sSubtitle">{{ configContent.features.subtitle }}</p>
+			</div>
+			<div class="sDoubleTitle__action">
+				<div class="sArrows">
+					<button class="sArrows__item prev sReviewsPrev"></button>
+					<button class="sArrows__item next sReviewsNext"></button>
+				</div>
+			</div>
+		</div>
+		<div class="sReviews swiper">
+			<div class="swiper-wrapper">
+				{% for item in configContent.reviews.list %}
+				<a href="#" class="sReviews__item swiper-slide">
+					<picture class="imageArea">
+						<img src="{{ item.image.path }}" loading="lazy" alt="Отзыв на {{ item.title }}">
+					</picture>
+					<div class="sReviews__item-content">
+						<h3 class="sTitle" data-styles="fz3"><span>{{ item.title }}</span></h3>
+						<p class="sReviews__item-status"><span>{{ item.percent }}</span> {{ item.text }}</p>
+					</div>
+				</a>
+				{% endfor %}
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+	</div>
+</section>
+{% endif %}
+{% if configContent.features.list|length %}
+<section>
+	<div class="container">
+		<div class="sDoubleTitle">
+			<div class="sDoubleTitle__title">
+				<h2 class="sTitle"><span>{{ configContent.features.title }}</span></h2>
+				<p class="sSubtitle">{{ configContent.features.subtitle }}</p>
+			</div>
+		</div>
+		<div class="sFeatures">
+			{% for item in configContent.features.list %}
+			<div class="sFeatures__item">
+				<picture class="imageArea">
+					<img src="{{ item.image.path }}" loading="lazy" alt="{{ item.title }}">
+				</picture>
+				<h3 class="sFeatures__item-title">{{ item.title }}</h3>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+{% endif %}
+<section data-styles="np">
+	<div class="container full np">
+		<div id="yandexmap"></div>
+	</div>
+</section>
+<section data-styles="overflow bgblue mp">
+	<div class="container">
+		<div class="sDoubleTitle">
+			<div class="sDoubleTitle__title">
+				<h2 class="sTitle"><span>Места, которые стоит посмотреть</span></h2>
+			</div>
+			<div class="sDoubleTitle__action">
+				<div class="sArrows">
+					<button class="sArrows__item prev sPlacesPrev"></button>
+					<button class="sArrows__item next sPlacesNext"></button>
+				</div>
+			</div>
+		</div>
+		<div class="sBlogPage">
+			<time class="sBlogPage__date"></time>
+			<div class="sBlogPage__title"></div>
+			<div class="sBlogPage__content"></div>
+		</div>
+	</div>
+</section>
+<section data-styles="overflow bggradien1 mp">
+	<div class="container">
+		<div class="sCallback thisBlue">
+			<form action="#" class="sCallback__form">
+				<h2 class="sTitle" data-styles="fz1"><span>Наша команда поможет вам выбрать подходящее жилье на <mark>Palm Jumeira</mark></span></h2>
+				<div class="sCallback__form-body">
+					<input type="text" placeholder="Ваше имя">
+					<input type="tel" placeholder="Номер телефона">
+					<button type="submit" class="sButton">Написать</button>
+				</div>
+				<p class="sCallback__form-rules">Отправляя данную форму вы соглашаетесь с политикой конфиденциальности</p>
+			</form>
+			<div class="sCallback__image">
+				<img src="{{ '/assets/img/face.png'|theme }}" alt="">
+			</div>
+		</div>
+		{% if configContent.about.text %}
+		<div class="sAbout">
+			<h2 class="sTitle" data-styles="fz2"><span>{{ configContent.about.title }}</span></h2>
+			<div class="sAbout__text thisShort">
+				{{ configContent.about.text|raw }}
+			</div>
+			<button class="sAbout__more">Показать полностью</button>
+		</div>
+		{% endif %}
+	</div>
+</section>

@@ -1,0 +1,87 @@
+[global configMain]
+handle = "Config\Main"
+
+[global configContent]
+handle = "Config\Content"
+
+[global configText]
+handle = "Config\Text"
+==
+<?php
+	use Piggy\Catalog\Models\Appart;
+	use Piggy\Catalog\Models\Build;
+
+	function onStart() {
+		$appartsList = Appart::query()->where('active', true)->orderBy('sort_order')->get();
+		$this['appartsList'] = $appartsList;
+
+		$buildsList = Build::query()->where('active', true)->orderBy('sort_order')->get();
+		$this['buildsList'] = $buildsList;
+
+		$buildsListNew = Build::query()->where('active', true)->where('new', true)->orderBy('sort_order')->get();
+		$this['buildsListNew'] = $buildsListNew;
+	}
+?>
+==
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>{% placeholder placeholderTitle default %}{{ this.page.meta_title }}{% endplaceholder %}</title>
+	<meta name="description" content="{% placeholder placeholderDescription default %}{{ this.page.meta_description }}{% endplaceholder %}">
+	<meta name="keywords" content="{% placeholder placeholderKeywords default %}{% endplaceholder %}">
+	<meta name="robots" content="{% placeholder placeholderRobots default %}index, follow{% endplaceholder %}">
+	<meta name="author" content="https://naax.ru/">
+
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="СК Прометей">
+	<meta property="og:url" content="{{ ''|page }}">
+	<meta property="og:title" content="{{ this.page.meta_title }}">
+	<meta property="og:description" content="{{ this.page.meta_description }}">
+	<meta property="og:image" content="{% placeholder ogImagePlaceholder default %}{{ configMain.company.og_image.path }}{% endplaceholder %}">
+
+	<link rel="apple-touch-icon" href="{{ 'assets/favicon/apple-touch-icon.png'|theme }}">
+	<link rel="yandex-tableau-widget" href="{{ 'assets/favicon/tableau.json'|theme }}">
+	<link rel="icon" href="{{ 'assets/favicon/favicon.ico'|theme }}" sizes="any">
+	<link rel="icon" href="{{ 'assets/favicon/icon.svg'|theme }}" type="image/svg+xml">
+	<link rel="manifest" href="{{ 'assets/favicon/manifest.webmanifest'|theme }}">
+
+	<link rel="stylesheet" type="text/css" href="{{ [
+		'assets/libs/fancybox/fancybox.css',
+		'assets/libs/swiper/swiper-bundle.min.css',
+		'assets/css/main.min.css',
+		'assets/css/update.css'
+	]|theme }}">
+	{% styles %}
+</head>
+<body id="{{ this.page.id }}">
+	{% partial 'header' %}
+	<main>
+		{% partial 'breads' %}
+		{% page %}
+	</main>
+	{% partial 'footer' %}
+	{% partial 'popup' %}
+	{% partial 'other' %}
+
+	{{ configMain.raznoe.prescripts|default('')|raw }}
+	<script src="https://api-maps.yandex.ru/v3/?apikey=5f80ea29-67ec-4648-96ac-81ba89d4fdbd&lang=ru_RU"></script>
+	<!-- <script src="/assets/libs/jquery/jquery.min.js"></script> -->
+	<script src="{{ [
+		'assets/libs/inputmask/inputmask.min.js',
+		'assets/libs/moment/moment.min.js',
+		'assets/libs/moment/moment-ru.min.js',
+		'assets/libs/fancybox/fancybox.umd.js',
+		'assets/libs/swiper/swiper-bundle.min.js',
+		'assets/js/build.js',
+		'assets/js/main.js',
+		]|theme }}"></script>
+	{{ configMain.raznoe.afterscripts|default('')|raw }}
+
+	{% framework extras %}
+	{% scripts %}
+</body>
+</html>

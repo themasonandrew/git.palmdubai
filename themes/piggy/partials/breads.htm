@@ -1,0 +1,11 @@
+{% if this.page.id != 'home' %}
+<section data-styles="np np">
+	<div class="container">
+		<ul class="sBreads">
+			<li><a href="/">Главная</a></li>
+			{% placeholder breads %}
+			<li><a href="{{ ''|page }}">{{ this.page.title }}</a></li>
+		</ul>
+	</div>
+</section>
+{% endif %}

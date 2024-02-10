@@ -1,0 +1,103 @@
+uuid: 0a83a85b-e985-4c3c-9890-0fbd23a6807c
+handle: Config\Main
+type: global
+name: Основное
+drafts: false
+
+primaryNavigation:
+    label: Конфигурация
+    icon: icon-heart
+    order: 999
+
+navigation:
+    parent: Config\Main
+    icon: icon-heart
+    order: 1
+
+fields:
+    ## Основное
+    company:
+        tab: Основное
+        type: nestedform
+        showPanel: false
+        form:
+            fields:
+                phone:
+                    comment: Телефон
+                    span: auto
+                email:
+                    comment: E-mail
+                    span: auto
+                worktime:
+                    comment: Часы работы
+                    span: full
+                    attributes:
+                        maxlength: '1000'
+                address:
+                    comment: Адрес
+                    span: full
+                    attributes:
+                        maxlength: '1000'
+                logo:
+                    comment: Логотип
+                    span: auto
+                    type: fileupload
+                    mode: file
+                    maxFiles: 1
+                og_image:
+                    comment: OG изображение
+                    span: auto
+                    type: fileupload
+                    mode: image
+                    maxFiles: 1
+    ## Навигация
+    navigation:
+        tab: Навигация
+        type: repeater
+        form:
+            fields:
+                title:
+                    comment: Название
+                    span: auto
+                    type: text
+                url:
+                    comment: Ссылка
+                    span: auto
+                    type: text
+    ## Соц. сети
+    socials:
+        tab: Соц. сети
+        type: repeater
+        form:
+            fields:
+                title:
+                    comment: Название
+                    span: auto
+                    type: text
+                url:
+                    comment: Ссылка
+                    span: auto
+                    type: text
+                css:
+                    comment: Css class
+                    span: auto
+                    type: text
+    ## Разное
+    raznoe:
+        tab: Разное
+        type: nestedform
+        showPanel: false
+        form:
+            fields:
+                prescripts:
+                    commentAbove: Код перед скриптами
+                    span: full
+                    type: codeeditor
+                    size: giant
+                    language: html
+                afterscripts:
+                    commentAbove: Код после скриптов перед </body>
+                    span: full
+                    type: codeeditor
+                    size: giant
+                    language: html

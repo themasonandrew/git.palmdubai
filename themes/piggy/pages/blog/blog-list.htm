@@ -1,0 +1,59 @@
+url = "/blog"
+layout = "default"
+title = "Публикации"
+meta_title = "Публикации"
+meta_description = "Публикации"
+
+[viewBag]
+sitemapActive = 1
+sitemapPriority = 1.0
+sitemapChangefreq = "daily"
+==
+<section>
+	<div class="container">
+		<div class="sDoubleTitle">
+			<div class="sDoubleTitle__title">
+				<h2 class="sTitle"><span>Статьи</span></h2>
+			</div>
+		</div>
+		<div class="sPlaces thisCol">
+			<a href="#" class="sPlaces__item" data-fx-clone="10">
+				<picture class="imageArea">
+					<img src="{{ '/assets/img/appart.png'|theme }}" alt="">
+				</picture>
+				<div class="sPlaces__item-content">
+					<h3 class="sTitle" data-styles="cb fz2">Serenia Living</h3>
+					<p class="sPlaces__item-description">Современная двухэтажная вилла с 3-мя спальнями площадью 681 м² на острове Palm Jumeirah. Здание из светлого камня выполнено в традиционном восточном стиле с арочными окнами, колоннами и резным</p>
+					<span class="sPlaces__item-more">Читать полностью</span>
+				</div>
+			</a>
+		</div>
+	</div>
+</section>
+<section data-styles="overflow">
+	<div class="container">
+		<div class="sCallback thisBlue">
+			<form action="#" class="sCallback__form">
+				<h2 class="sTitle" data-styles="fz1"><span>Наша команда поможет вам выбрать подходящее жилье на <mark>Palm Jumeira</mark></span></h2>
+				<div class="sCallback__form-body">
+					<input type="text" placeholder="Ваше имя">
+					<input type="tel" placeholder="Номер телефона">
+					<button type="submit" class="sButton">Написать</button>
+				</div>
+				<p class="sCallback__form-rules">Отправляя данную форму вы соглашаетесь с политикой конфиденциальности</p>
+			</form>
+			<div class="sCallback__image">
+				<img src="{{ '/assets/img/face.png'|theme }}" alt="">
+			</div>
+		</div>
+		{% if configContent.about.text %}
+		<div class="sAbout">
+			<h2 class="sTitle" data-styles="fz2"><span>{{ configContent.about.title }}</span></h2>
+			<div class="sAbout__text thisShort">
+				{{ configContent.about.text|raw }}
+			</div>
+			<button class="sAbout__more">Показать полностью</button>
+		</div>
+		{% endif %}
+	</div>
+</section>

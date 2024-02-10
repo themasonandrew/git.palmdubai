@@ -1,0 +1,80 @@
+url = "/catalog"
+layout = "default"
+title = "Catalog"
+meta_title = "Catalog"
+meta_description = "Catalog"
+
+[viewBag]
+sitemapActive = 1
+sitemapPriority = 1.0
+sitemapChangefreq = "daily"
+==
+<section>
+	<div class="container">
+		<div class="sDoubleTitle">
+			<div class="sDoubleTitle__title">
+				<h2 class="sTitle"><span>Жилые комплексы на <mark>Palm Jumeira</mark></span></h2>
+				<p class="sSubtitle">Подерите новостройки на Пальме Джумейра, главной достопримечательности Дубая, расположенной рядом с крупнейшей живописной гаванью города.</p>
+			</div>
+		</div>
+		<div class="sApparts__pre">
+			<div class="sApparts__pre-title">Мы нашли <span data-fx-numword data-fx-numword-after="объект для покупки, объекта для покупки, объектов для покупки">{{ appartsList|length }}</span> в <span data-fx-numword data-fx-numword-after="новостройке, новостройках, новостройках">{{ buildsList|length }}</span></div>
+		</div>
+		<div class="sApparts thisCol" data-fx-upload data-fx-upload-type="semiauto" data-fx-upload-start="6" data-fx-upload-step="6">
+			{% for item in buildsList %}
+			{% set buildId = item.id %}
+			{% set minPrice = 999999999999 %}
+			{% for item in appartsList %}
+			{% if item.build_id == buildId %}
+			{% if minPrice > item.price %}
+			{% set minPrice = item.price %}
+			{% endif %}
+			{% endif %}
+			{% endfor %}
+			<a href="{{ item.slug }}" class="sApparts__item" data-fx-clone="2" data-fx-upload-item>
+				<picture class="imageArea">
+					<img src="{{ item.gallery[0].path }}" alt="">
+				</picture>
+				<div class="sApparts__item-content">
+					<h3 class="sTitle" data-styles="cb fzs">{{ item.title }}</h3>
+					<div class="sParams">
+						<li class="sParams__item thisLoc">{{ item.address }}</li>
+					</div>
+					<p class="sApparts__item-description">{{ item.short }}</p>
+					<div class="sApparts__item-bottom">
+						<div class="sPrice" data-styles="fz3" data-fx-currency>{{ minPrice }}</div>
+					</div>
+				</div>
+			</a>
+			{% endfor %}
+			<button data-fx-upload-more class="sButton">Показать все</button>
+		</div>
+	</div>
+</section>
+<section data-styles="overflow">
+	<div class="container">
+		<div class="sCallback">
+			<form action="#" class="sCallback__form">
+				<h2 class="sTitle" data-styles="fz1"><span>Полный каталог новостроек на <mark>Palm Jumeirah</mark> для жизни и инвестирования</span></h2>
+				<div class="sCallback__form-body">
+					<input type="text" placeholder="Ваше имя">
+					<input type="tel" placeholder="Номер телефона">
+					<button type="submit" class="sButton">Получить каталог</button>
+				</div>
+				<p class="sCallback__form-rules">Отправляя данную форму вы соглашаетесь с политикой конфиденциальности</p>
+			</form>
+			<div class="sCallback__image">
+				<img src="{{ '/assets/img/book.png'|theme }}" alt="">
+			</div>
+		</div>
+		{% if configContent.about.text %}
+		<div class="sAbout">
+			<h2 class="sTitle" data-styles="fz2"><span>{{ configContent.about.title }}</span></h2>
+			<div class="sAbout__text thisShort">
+				{{ configContent.about.text|raw }}
+			</div>
+			<button class="sAbout__more">Показать полностью</button>
+		</div>
+		{% endif %}
+	</div>
+</section>

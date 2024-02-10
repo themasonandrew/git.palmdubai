@@ -1,0 +1,12 @@
+uuid: 52eb71a5-10ec-4b1a-9e95-da2d0c93962e
+handle: Config\Text
+type: global
+name: Текст
+drafts: false
+
+navigation:
+    parent: Config\Main
+    icon: icon-heart
+    order: 3
+
+fields:

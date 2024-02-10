@@ -1,0 +1,26 @@
+<header class="sHeader">
+	<div class="container">
+		<div class="sLogo">
+			<img src="{{ configMain.company.logo.path }}" alt="Palm Jumeiran Logo">
+			<span>Palm Jumeiran</span>
+		</div>
+		<nav class="sHeader__nav">
+			{% for item in configMain.navigation %}
+			<a href="{{ item.url }}">{{ item.title }}</a>
+			{% endfor %}
+		</nav>
+		<div class="sHeader__connect">
+			<div class="sSocials">
+				{% for item in configMain.socials %}
+				<a href="{{ item.url }}" class="sSocials__item {{ item.css }}" title="{{ item.title }}"></a>
+				{% endfor %}
+			</div>
+			<div class="sContacts">
+				<div class="sContacts__worktime">Звоните <span>{{ configMain.company.worktime }}</span></div>
+				<a href="tel:{{ configMain.company.phone }}" class="sContacts__phone">{{ configMain.company.phone }}</a>
+			</div>
+		</div>
+		<a href="#" class="sHeader__button">Заказать звонок</a>
+		<a href="#" class="sHeader__button thisOrange">Выбрать пожелания</a>
+	</div>
+</header>

@@ -1,0 +1,85 @@
+tabs:
+    fields:
+        build:
+            tab: Основное
+            commentAbove: Новостройка
+            nameFrom: title
+            descriptionFrom: description
+            span: auto
+            type: relation
+        price:
+            tab: Основное
+            commentAbove: Цена
+            span: auto
+            type: number
+        gallery:
+            tab: Основное
+            commentAbove: Галерея
+            span: full
+            type: fileupload
+            mode: image
+        short:
+            tab: Контент
+            commentAbove: 'Короткое описание'
+            span: full
+            type: textarea
+            size: small
+        param_area:
+            tab: Контент
+            commentAbove: 'Площадь'
+            span: full
+            type: text
+        param_bed:
+            tab: Контент
+            commentAbove: 'Кроватей'
+            span: full
+            type: text
+        param_loc:
+            tab: Контент
+            commentAbove: 'Локация'
+            span: full
+            type: text
+        seo_title:
+            tab: SEO
+            commentAbove: Seo Title
+            span: full
+            type: text
+            attributes:
+                maxlength: '1000'
+        seo_description:
+            tab: SEO
+            commentAbove: Seo Description
+            span: full
+            type: text
+            attributes:
+                maxlength: '1000'
+        seo_robots:
+            tab: SEO
+            commentAbove: Seo Robots
+            span: auto
+            type: text
+            attributes:
+                maxlength: '1000'
+        seo_keywords:
+            tab: SEO
+            commentAbove: Seo Keywords
+            span: auto
+            type: text
+            attributes:
+                maxlength: '1000'
+fields:
+    title:
+        commentAbove: Название
+        span: auto
+        type: text
+    slug:
+        commentAbove: Ссылка
+        span: auto
+        type: text
+        preset:
+            field: title
+            type: slug
+    active:
+        label: Активно
+        span: auto
+        type: switch

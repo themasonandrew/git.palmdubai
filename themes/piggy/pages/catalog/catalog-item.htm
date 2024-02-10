@@ -1,0 +1,240 @@
+url = "/catalog/:slug"
+layout = "default"
+title = "Catalog Item"
+meta_title = "Catalog Item"
+meta_description = "Catalog Item"
+
+[viewBag]
+sitemapActive = 1
+sitemapPriority = 1.0
+sitemapChangefreq = "daily"
+==
+<section>
+	<div class="container">
+		<div class="sDoubleTitle">
+			<div class="sDoubleTitle__title">
+				<h2 class="sTitle"><span>Five Palm Jumeira</span></h2>
+			</div>
+			<div class="sDoubleTitle__action">
+				<a href="#" class="sButton">Показать все</a>
+			</div>
+		</div>
+		<div class="sGallery this3">
+			{% for item in configContent.gallery.list %}
+			<a href="#" data-fancybox="gallery" data-src="{{ item.image.path }}" data-caption="{{ item.title }}" class="sGallery__item">
+				<picture class="imageArea">
+					<img src="{{ item.image.path }}" loading="lazy" alt="{{ item.title }}">
+				</picture>
+			</a>
+			{% endfor %}
+		</div>
+		<div class="sCard">
+			<div class="sCard__left">
+				<h3 class="sTitle" data-styles="fz3"><span>Five Palm Jumeirah — комплекс отельных номеров, апартаментов и вилл на искусственном острове <mark>Palm Jumeirah</mark> в Персидском заливе</span></h3>
+				<p class="sSubtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim optio veritatis beatae, dignissimos illum aperiam modi voluptates nam corrupti provident fugit. Quas natus laboriosam a eum, nam exercitationem recusandae vitae aperiam nobis odit. Maxime, nemo fugiat dicta incidunt debitis quo veniam vel. Voluptatem odio libero cum suscipit tempora tempore corporis!</p>
+			</div>
+			<div class="sCard__right">
+				<span class="sCard__right-loc"></span>
+				<p class="sCard__right-price"><span class="sPrice" data-fx-currency>8990000</span></p>
+				<p class="sCard__right-price"><span class="sPrice" data-fx-currency>3698</span> за м2</p>
+				<div class="sManager">
+					<div class="sManager__face imageArea">
+						<img src="{{ 'assets/img/manager.png'|theme }}" alt="">
+					</div>
+					<div class="sManager__content">
+						<span class="sManager__content-name">Эльдар</span>
+						<span class="sManager__content-who">Эксперт по недвижимости</span>
+						<a href="tel:+7 (495) 085-37-77" class="sManager__content-tel">+7 (495) 085-37-77</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section>
+	<div class="container">
+		<div class="sDoubleTitle">
+			<div class="sDoubleTitle__title">
+				<h2 class="sTitle"><span>Наш выбор в <mark>Five Palm Jumeira</mark></span></h2>
+				<p class="sSubtitle">Вы можете выбрать как уютную студию, там и просторные апартамента с 1-4 спальнями. Для особых ценителей роскоши представлены пентхаусы на высоте птичьего полета.</p>
+			</div>
+		</div>
+		<div class="sApparts">
+			{% for item in appartsList %}
+			<a href="{{ item.slug }}" class="sApparts__item" data-fx-clone="2">
+				<picture class="imageArea">
+					<img src="{{ item.gallery[0].path }}" alt="">
+				</picture>
+				<div class="sApparts__item-content">
+					<h3 class="sTitle" data-styles="cb fzs">{{ item.title }}</h3>
+					<p class="sApparts__item-description">{{ item.short }}</p>
+					<div class="sParams">
+						<li class="sParams__item thisArea">{{ item.param_area }}</li>
+						<li class="sParams__item thisBed">{{ item.param_bed }}</li>
+						<li class="sParams__item thisLoc">{{ item.param_loc }}</li>
+					</div>
+					<div class="sApparts__item-bottom">
+						<div class="sPrice" data-styles="fz3" data-fx-currency>{{ item.price }}</div>
+					</div>
+				</div>
+			</a>
+			{% endfor %}
+		</div>
+		<a href="#" class="sButton" data-styles="more">fx-upload-more</a>
+	</div>
+</section>
+<section>
+	<div class="container">
+		<div class="sDoubleTitle">
+			<div class="sDoubleTitle__title">
+				<h2 class="sTitle"><span>О проекте</span></h2>
+				<p class="sSubtitle">На 150-тиметровом частном пляже вы найдете развлечения на любой вкус — теплая морская вода, водные виды спорта, шезлонги для принятия солнечных ванн. Проводите регулярные тренировки в тренажерном зале комплекса. После занятий спортом поддержите здоровье и красоту вашего тела в оздоровительном спа-салоне, сауне или хамаме. В ресторанах на территории Five Palm Jumeirah жители пробуют блюда кухонь разных стран в компании семьи и друзей. Резиденты плавают в 60-тиметровом infinity-бассейне и любуются на сверкающие на солнце небоскребы. Маленькие жители проводят время с друзьями на игровых площадках и в детском клубе.</p>
+			</div>
+		</div>
+		<div class="sGallery this4">
+			{% for item in configContent.gallery.list %}
+			<a href="#" data-fancybox="gallery" data-src="{{ item.image.path }}" data-caption="{{ item.title }}" class="sGallery__item">
+				<picture class="imageArea">
+					<img src="{{ item.image.path }}" loading="lazy" alt="{{ item.title }}">
+				</picture>
+			</a>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+<section data-styles="np">
+	<div class="container full np">
+		<div id="yandexmap"></div>
+	</div>
+</section>
+<section data-styles="overflow">
+	<div class="container">
+		<div class="sDoubleTitle">
+			<div class="sDoubleTitle__title">
+				<h2 class="sTitle"><span>О проекте</span></h2>
+				<p class="sSubtitle">На 150-тиметровом частном пляже вы найдете развлечения на любой вкус — теплая морская вода, водные виды спорта, шезлонги для принятия солнечных ванн. Проводите регулярные тренировки в тренажерном зале комплекса. После занятий спортом поддержите здоровье и красоту вашего тела в оздоровительном спа-салоне, сауне или хамаме. В ресторанах на территории Five Palm Jumeirah жители пробуют блюда кухонь разных стран в компании семьи и друзей. Резиденты плавают в 60-тиметровом infinity-бассейне и любуются на сверкающие на солнце небоскребы. Маленькие жители проводят время с друзьями на игровых площадках и в детском клубе.</p>
+			</div>
+		</div>
+		<div class="sTopSwiper swiper">
+			<div class="swiper-wrapper">
+				{% for item in configContent.gallery.list %}
+				<div class="sTopSwiper__item swiper-slide">
+					<div class="sTopSwiper__image imageArea">
+						<img src="{{ item.image.path }}" alt="">
+					</div>
+					<div class="sTopSwiper__content">
+						<div class="sTopSwiper__content-title">Аквапарк</div>
+						<div class="sTopSwiper__content-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam distinctio molestias quod sit repellendus cumque libero voluptas officiis doloremque eos delectus dolor omnis illo adipisci, voluptates quos architecto reiciendis fugiat.</div>
+						<div class="sTopSwiper__content-nav">1/4 + -</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+<section data-styles="overflow">
+	<div class="container">
+		<div class="sCallback">
+			<form action="#" class="sCallback__form">
+				<h2 class="sTitle" data-styles="fz1"><span>Полный каталог новостроек на <mark>Palm Jumeirah</mark> для жизни и инвестирования</span></h2>
+				<div class="sCallback__form-body">
+					<input type="text" placeholder="Ваше имя">
+					<input type="tel" placeholder="Номер телефона">
+					<button type="submit" class="sButton">Получить каталог</button>
+				</div>
+				<p class="sCallback__form-rules">Отправляя данную форму вы соглашаетесь с политикой конфиденциальности</p>
+			</form>
+			<div class="sCallback__image">
+				<img src="{{ '/assets/img/book.png'|theme }}" alt="">
+			</div>
+		</div>
+	</div>
+</section>
+{% if buildsList|length %}
+<section data-styles="overflow">
+	<div class="container">
+		<div class="sDoubleTitle">
+			<div class="sDoubleTitle__title">
+				<h2 class="sTitle"><span>Новостройки поблизости</span></h2>
+				<p class="sSubtitle">Найдите недвижимость на побережье Персидского залива на знаменитой Пальме Джумейра для комфортной и островной жизни или возможностей для инвестиций.</p>
+			</div>
+			<div class="sDoubleTitle__action">
+				<div class="sArrows">
+					<button class="sArrows__item prev sHotelsPrev"></button>
+					<button class="sArrows__item next sHotelsNext"></button>
+				</div>
+			</div>
+		</div>
+		<div class="sHotels swiper">
+			<div class="swiper-wrapper">
+				{% for item in buildsList %}
+				<a href="#" class="sHotels__item swiper-slide">
+					<picture class="imageArea">
+						<img src="{{ item.gallery[0].path }}" alt="{{ item.title }}">
+					</picture>
+					<div class="sHotels__item-content">
+						<h3 class="sTitle" data-styles="cb fz2">{{ item.title }}</h3>
+						<p class="sHotels__item-description">{{ item.short }}</p>
+						<span class="sPrice" data-fx-currency>11500</span>
+					</div>
+				</a>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+{% endif %}
+{% if buildsListNew|length %}
+<section>
+	<div class="container">
+		<div class="sDoubleTitle">
+			<div class="sDoubleTitle__title">
+				<h2 class="sTitle" data-styles="capt"><mark>30</mark> <span>новых небоскребов <br>в <mark>Palm Jumeira</mark></span></h2>
+			</div>
+			<div class="sDoubleTitle__action">
+				<a href="#" class="sButton">Посмотреть все</a>
+			</div>
+		</div>
+		<div class="sTowers">
+			{% for item in buildsListNew %}
+			<a href="#" class="sTowers__item">
+				<picture class="imageArea">
+					<img src="{{ item.gallery[0].path }}" alt="{{ item.title }}">
+				</picture>
+				<div class="sTowers__item-content">
+					<h3 class="sTitle" data-styles="cb fzs">{{ item.title }}</h3>
+				</div>
+			</a>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+{% endif %}
+<section data-styles="overflow bggradien1 mp">
+	<div class="container">
+		<div class="sCallback thisBlue">
+			<form action="#" class="sCallback__form">
+				<h2 class="sTitle" data-styles="fz1"><span>Наша команда поможет вам выбрать подходящее жилье на <mark>Palm Jumeira</mark></span></h2>
+				<div class="sCallback__form-body">
+					<input type="text" placeholder="Ваше имя">
+					<input type="tel" placeholder="Номер телефона">
+					<button type="submit" class="sButton">Написать</button>
+				</div>
+				<p class="sCallback__form-rules">Отправляя данную форму вы соглашаетесь с политикой конфиденциальности</p>
+			</form>
+			<div class="sCallback__image">
+				<img src="{{ '/assets/img/face.png'|theme }}" alt="">
+			</div>
+		</div>
+		{% if configContent.about.text %}
+		<div class="sAbout">
+			<h2 class="sTitle" data-styles="fz2"><span>{{ configContent.about.title }}</span></h2>
+			<div class="sAbout__text thisShort">
+				{{ configContent.about.text|raw }}
+			</div>
+			<button class="sAbout__more">Показать полностью</button>
+		</div>
+		{% endif %}
+	</div>
+</section>
