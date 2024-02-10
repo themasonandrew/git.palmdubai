@@ -17,28 +17,28 @@ tabs:
             span: full
             type: textarea
             size: small
-        seo_title:
+        meta_title:
             tab: SEO
             commentAbove: Seo Title
             span: full
             type: text
             attributes:
                 maxlength: '1000'
-        seo_description:
+        meta_description:
             tab: SEO
             commentAbove: Seo Description
             span: full
             type: text
             attributes:
                 maxlength: '1000'
-        seo_robots:
+        meta_robots:
             tab: SEO
             commentAbove: Seo Robots
             span: auto
             type: text
             attributes:
                 maxlength: '1000'
-        seo_keywords:
+        meta_keywords:
             tab: SEO
             commentAbove: Seo Keywords
             span: auto
