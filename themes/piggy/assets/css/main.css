@@ -4943,10 +4943,15 @@ section[data-styles*=separator] .container {
   margin-top: 16px;
 }
 .sHotels__item-description {
+  margin-bottom: auto;
   display: block;
   font-size: 1.4rem;
   line-height: 1.7;
   color: #566064;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .sHotels__item.swiper-slide-active, .sHotels__item.swiper-slide-active ~ .swiper-slide {
   opacity: 1;
