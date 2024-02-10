@@ -10,6 +10,7 @@ handle = "Config\Text"
 <?php
 	use Piggy\Catalog\Models\Appart;
 	use Piggy\Catalog\Models\Build;
+	use Piggy\Catalog\Models\Place;
 
 	function onStart() {
 		$appartsList = Appart::query()->where('active', true)->orderBy('sort_order')->get();
@@ -20,6 +21,9 @@ handle = "Config\Text"
 
 		$buildsListNew = Build::query()->where('active', true)->where('new', true)->orderBy('sort_order')->get();
 		$this['buildsListNew'] = $buildsListNew;
+		
+		$placesList = Place::query()->where('active', true)->where('date', '<', now())->orderBy('sort_order')->get();
+		$this['placesList'] = $placesList;
 	}
 ?>
 ==

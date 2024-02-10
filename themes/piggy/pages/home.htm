@@ -309,10 +309,21 @@ sitemapChangefreq = "daily"
 				</div>
 			</div>
 		</div>
-		<div class="sBlogPage">
-			<time class="sBlogPage__date"></time>
-			<div class="sBlogPage__title"></div>
-			<div class="sBlogPage__content"></div>
+		<div class="sPlaces swiper">
+			<div class="swiper-wrapper">
+				{% for item in placesList %}
+				<a href="#" class="sPlaces__item swiper-slide" data-fx-clone="10">
+					<picture class="imageArea">
+						<img src="{{ item.gallery[0].path }}" alt="{{ item.title }}">
+					</picture>
+					<div class="sPlaces__item-content">
+						<h3 class="sTitle" data-styles="cb fz2">{{ item.title }}</h3>
+						<p class="sPlaces__item-description">{{ item.short }}</p>
+						<span class="sPlaces__item-more">Читать полностью</span>
+					</div>
+				</a>
+				{% endfor %}
+			</div>
 		</div>
 	</div>
 </section>
