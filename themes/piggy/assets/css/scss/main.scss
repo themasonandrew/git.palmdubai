@@ -719,6 +719,7 @@ section {
 .sHotels {
 	&__item {
 		width: 420px;
+		height: auto;
 		display: flex;
 		flex-direction: column;
 		border-radius: 16px;
@@ -730,12 +731,14 @@ section {
 
 		.imageArea {
 			height: 320px;
+			min-height: 320px;
 
 			img {
 				transition: all 0.2s;
 			}
 		}
 		&-content {
+			height: 100%;
 			display: flex;
 			flex-direction: column;
 			align-items: flex-start;

@@ -4893,6 +4893,7 @@ section[data-styles*=separator] .container {
 /* sections */
 .sHotels__item {
   width: 420px;
+  height: auto;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4914,12 +4915,14 @@ section[data-styles*=separator] .container {
 }
 .sHotels__item .imageArea {
   height: 320px;
+  min-height: 320px;
 }
 .sHotels__item .imageArea img {
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
 .sHotels__item-content {
+  height: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
