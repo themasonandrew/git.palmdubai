@@ -2095,13 +2095,22 @@ section {
 	&__content {
 		color: $cw;
 		margin-top: 24px;
-		&-title {
-			color: $cw;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+
+		.sTitle {
+			width: auto;
+			margin-right: 120px;
+		}
+		.sArrows {
+			margin-left: 120px;
 		}
 		&-text {
-			color: $cw;
-		}
-		&-nav {
+			width: 100%;
+			margin-left: auto;
+			margin-right: auto;
+			display: block;
 			color: $cw;
 		}
 	}
