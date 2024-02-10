@@ -3,16 +3,10 @@ columns:
         label: Название
         type: text
         sortable: true
-    slug:
-        label: Ссылка
+    address:
+        label: Адрес
         type: text
         sortable: true
-    gallery:
-        label: Превью
-        type: image
-        width: 50
-        height: 50
-        sortable: false
     active:
         label: Активно
         type: switch
@@ -21,3 +15,9 @@ columns:
         label: Порядок
         type: text
         sortable: true
+    gallery:
+        label: Галерея
+        type: image
+        width: 50
+        height: 50
+        sortable: false

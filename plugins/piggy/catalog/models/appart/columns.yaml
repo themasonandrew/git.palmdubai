@@ -1,19 +1,28 @@
 columns:
-    id:
-        label: id
-        type: number
-    created_at:
-        label: created_at
-        type: datetime
-    updated_at:
-        label: updated_at
-        type: datetime
     title:
-        label: title
+        label: Название
         type: text
-    slug:
-        label: slug
+        sortable: true
+    build:
+        label: Новостройка
         type: text
+        relation: build
+        select: title
+    price:
+        label: Цена
+        type: number
+        sortable: true
     active:
-        label: active
+        label: Активно
+        type: switch
+        sortable: true
+    sort_order:
+        label: Порядок
         type: text
+        sortable: true
+    gallery:
+        label: Галерея
+        type: image
+        width: 50
+        height: 50
+        sortable: false
