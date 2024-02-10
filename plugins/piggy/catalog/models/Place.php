@@ -17,5 +17,7 @@ class Place extends Model
 		'title' => 'required',
 		'slug' => 'required'
 	];
-
+  public $attachMany = [
+		'gallery'=>'System\Models\File'
+	];
 }

@@ -1,3 +1,57 @@
+tabs:
+    fields:
+        date:
+            tab: Основное
+            commentAbove: 'Дата публикации'
+            mode: date
+            span: full
+            type: datepicker
+        short:
+            tab: Основное
+            commentAbove: 'Короткое описание'
+            span: full
+            type: textarea
+            size: small
+        gallery:
+            tab: Основное
+            commentAbove: Галерея
+            span: full
+            type: fileupload
+            mode: image
+        content:
+            tab: Основное
+            commentAbove: Контент
+            size: giant
+            span: full
+            type: richeditor
+        seo_title:
+            tab: SEO
+            commentAbove: Seo Title
+            span: full
+            type: text
+            attributes:
+                maxlength: '1000'
+        seo_description:
+            tab: SEO
+            commentAbove: Seo Description
+            span: full
+            type: text
+            attributes:
+                maxlength: '1000'
+        seo_robots:
+            tab: SEO
+            commentAbove: Seo Robots
+            span: auto
+            type: text
+            attributes:
+                maxlength: '1000'
+        seo_keywords:
+            tab: SEO
+            commentAbove: Seo Keywords
+            span: auto
+            type: text
+            attributes:
+                maxlength: '1000'
 fields:
     title:
         commentAbove: Название
