@@ -11,11 +11,16 @@ sitemapChangefreq = "daily"
 ==
 <?php
 	use Piggy\Catalog\Models\Build;
+	use Piggy\Catalog\Models\Appart;
 
 	function onStart() {
 		$currentId = $this->param('id');
 		$currentBuild = Build::all()->where('active', true)->where('id', $currentId)->first();
 		$this['currentBuild'] = $currentBuild;
+
+		$currentApparts = Appart::all()->where('active', true)->where('build_id', '==', $currentId);
+		$this['currentApparts'] = $currentApparts;
+
 		if (!$currentBuild) {
 			return $this->controller->run('404');
 		}
@@ -34,7 +39,7 @@ sitemapChangefreq = "daily"
 				<h1 class="sTitle"><span>{{ currentBuild.title }}</span></h1>
 			</div>
 			<div class="sDoubleTitle__action">
-				<a href="#" class="sButton">К новостройкам</a>
+				<a href="/catalog" class="sButton">К новостройкам</a>
 			</div>
 		</div>
 		<div class="sViews" data-styles="build">
@@ -47,8 +52,8 @@ sitemapChangefreq = "daily"
 		</div>
 		<div class="sCard">
 			<div class="sCard__left">
-				<h2 class="sTitle" data-styles="fz3 thin"><span>Five Palm Jumeirah — комплекс отельных номеров, апартаментов и вилл на искусственном острове <mark>Palm Jumeirah</mark> в Персидском заливе</span></h2>
-				<p class="sSubtitle" data-styles="thin">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim optio veritatis beatae, dignissimos illum aperiam modi voluptates nam corrupti provident fugit. Quas natus laboriosam a eum, nam exercitationem recusandae vitae aperiam nobis odit. Maxime, nemo fugiat dicta incidunt debitis quo veniam vel. Voluptatem odio libero cum suscipit tempora tempore corporis!</p>
+				<h2 class="sTitle" data-styles="fz3 "><span>Five Palm Jumeirah — комплекс отельных номеров, апартаментов и вилл на искусственном острове <mark>Palm Jumeirah</mark> в Персидском заливе</span></h2>
+				<p class="sSubtitle" data-styles="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim optio veritatis beatae, dignissimos illum aperiam modi voluptates nam corrupti provident fugit. Quas natus laboriosam a eum, nam exercitationem recusandae vitae aperiam nobis odit. Maxime, nemo fugiat dicta incidunt debitis quo veniam vel. Voluptatem odio libero cum suscipit tempora tempore corporis!</p>
 			</div>
 			<div class="sCard__right">
 				<span class="sCard__right-loc">Palm Jumeirah Al Khail, Dubai Internet City</span>
@@ -68,53 +73,53 @@ sitemapChangefreq = "daily"
 		</div>
 	</div>
 </section>
-<section>
+<section data-styles="separator">
 	<div class="container">
 		<div class="sDoubleTitle">
 			<div class="sDoubleTitle__title">
-				<h2 class="sTitle"><span>Наш выбор в <mark>Five Palm Jumeira</mark></span></h2>
-				<p class="sSubtitle">Вы можете выбрать как уютную студию, там и просторные апартамента с 1-4 спальнями. Для особых ценителей роскоши представлены пентхаусы на высоте птичьего полета.</p>
+				<h2 class="sTitle" data-styles="fz3"><span>Наш выбор в <mark>Five Palm Jumeira</mark></span></h2>
+				<p class="sSubtitle" data-styles="full">Вы можете выбрать как уютную студию, там и просторные апартамента с 1-4 спальнями. Для особых ценителей роскоши представлены пентхаусы на высоте птичьего полета.</p>
 			</div>
 		</div>
-		<div class="sApparts">
-			{% for item in appartsList %}
-			<a href="{{ item.slug }}" class="sApparts__item" data-fx-clone="2">
+		<div class="sCatalog" data-styles="mainy" data-fx-upload data-fx-upload-type="semiauto" data-fx-upload-start="5" data-fx-upload-step="4">
+			{% for item in currentApparts %}
+			<a href="/catalog/{{ item.id }}" class="sCatalog__item" data-fx-clone="10" data-fx-upload-item>
 				<picture class="imageArea">
-					<img src="{{ item.gallery[0].path }}" alt="">
+					<source srcset="{{ item.gallery[0].thumbUrl(900, auto, { mode: 'exact', quality: 100, extension: 'webp' }) }}" type="image/webp">
+					<img src="{{ item.gallery[0].thumbUrl(900, auto, { mode: 'exact', quality: 100, extension: 'jpg' }) }}" loading="lazy" alt="{{ item.title }}">
 				</picture>
-				<div class="sApparts__item-content">
-					<h3 class="sTitle" data-styles="cb fzs">{{ item.title }}</h3>
-					<p class="sApparts__item-description">{{ item.short }}</p>
-					<div class="sParams">
+				<div class="sCatalog__item-content">
+					<h2 class="sTitle" data-styles="cb fzs">{{ item.title }}</h2>
+					<ul class="sParams">
 						<li class="sParams__item thisArea">{{ item.param_area }}</li>
 						<li class="sParams__item thisBed">{{ item.param_bed }}</li>
 						<li class="sParams__item thisLoc">{{ item.param_loc }}</li>
-					</div>
-					<div class="sApparts__item-bottom">
-						<div class="sPrice" data-styles="fz3" data-fx-currency>{{ item.price }}</div>
+					</ul>
+					<p class="sCatalog__item-description">{{ item.short }}</p>
+					<div class="sCatalog__item-bottom">
+						<span class="sPrice" data-styles="fz3" data-fx-currency>{{ item.price }}</span>
 					</div>
 				</div>
 			</a>
 			{% endfor %}
+			<button data-fx-upload-more class="sButton">Показать все</button>
 		</div>
-		<a href="#" class="sButton" data-styles="more">fx-upload-more</a>
 	</div>
 </section>
 <section>
 	<div class="container">
 		<div class="sDoubleTitle">
 			<div class="sDoubleTitle__title">
-				<h2 class="sTitle"><span>О проекте</span></h2>
-				<p class="sSubtitle">На 150-тиметровом частном пляже вы найдете развлечения на любой вкус — теплая морская вода, водные виды спорта, шезлонги для принятия солнечных ванн. Проводите регулярные тренировки в тренажерном зале комплекса. После занятий спортом поддержите здоровье и красоту вашего тела в оздоровительном спа-салоне, сауне или хамаме. В ресторанах на территории Five Palm Jumeirah жители пробуют блюда кухонь разных стран в компании семьи и друзей. Резиденты плавают в 60-тиметровом infinity-бассейне и любуются на сверкающие на солнце небоскребы. Маленькие жители проводят время с друзьями на игровых площадках и в детском клубе.</p>
+				<h2 class="sTitle" data-styles="fz3"><span>О проекте</span></h2>
+				<p class="sSubtitle" data-styles="full">На 150-тиметровом частном пляже вы найдете развлечения на любой вкус — теплая морская вода, водные виды спорта, шезлонги для принятия солнечных ванн. Проводите регулярные тренировки в тренажерном зале комплекса. После занятий спортом поддержите здоровье и красоту вашего тела в оздоровительном спа-салоне, сауне или хамаме. В ресторанах на территории Five Palm Jumeirah жители пробуют блюда кухонь разных стран в компании семьи и друзей. Резиденты плавают в 60-тиметровом infinity-бассейне и любуются на сверкающие на солнце небоскребы. Маленькие жители проводят время с друзьями на игровых площадках и в детском клубе.</p>
 			</div>
 		</div>
-		<div class="sGallery this4">
-			{% for item in configContent.gallery.list %}
-			<a href="#" data-fancybox="gallery" data-src="{{ item.image.path }}" data-caption="{{ item.title }}" class="sGallery__item">
-				<picture class="imageArea">
-					<img src="{{ item.image.path }}" loading="lazy" alt="{{ item.title }}">
-				</picture>
-			</a>
+		<div class="sViews" data-styles="flex">
+			{% for item in currentBuild.gallery %}
+			<picture data-fancybox="aboutGallery" data-src="{{ item.path }}" data-fx-clone="2" class="imageArea">
+				<source srcset="{{ item.thumbUrl(900, auto, { mode: 'exact', quality: 100, extension: 'webp' }) }}" type="image/webp">
+				<img src="{{ item.thumbUrl(900, auto, { mode: 'exact', quality: 100, extension: 'jpg' }) }}" alt="Изображение {{ currentBuild.title }}" loading="lazy">
+			</picture>
 			{% endfor %}
 		</div>
 	</div>
