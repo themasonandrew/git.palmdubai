@@ -171,28 +171,29 @@ sitemapChangefreq = "daily"
 				<div class="sTitle" data-styles="capt spansmall"><mark>125</mark> <span>Объектов были <br>выделены самыми <br>высокими баллами</span></div>
 			</div>
 		</div>
-		<div class="sApparts">
+		<div class="sCatalog" data-styles="mainy" data-fx-upload data-fx-upload-type="semiauto" data-fx-upload-start="5" data-fx-upload-step="4">
 			{% for item in appartsList %}
-			<a href="{{ item.slug }}" class="sApparts__item" data-fx-clone="2">
+			<a href="/catalog/{{ item.id }}" class="sCatalog__item" data-fx-clone="10" data-fx-upload-item>
 				<picture class="imageArea">
-					<img src="{{ item.gallery[0].path }}" alt="">
+					<source srcset="{{ item.gallery[0].thumbUrl(900, auto, { mode: 'exact', quality: 100, extension: 'webp' }) }}" type="image/webp">
+					<img src="{{ item.gallery[0].thumbUrl(900, auto, { mode: 'exact', quality: 100, extension: 'jpg' }) }}" loading="lazy" alt="{{ item.title }}">
 				</picture>
-				<div class="sApparts__item-content">
-					<h3 class="sTitle" data-styles="cb fzs">{{ item.title }}</h3>
-					<p class="sApparts__item-description">{{ item.short }}</p>
-					<div class="sParams">
+				<div class="sCatalog__item-content">
+					<h2 class="sTitle" data-styles="cb fzs">{{ item.title }}</h2>
+					<ul class="sParams">
 						<li class="sParams__item thisArea">{{ item.param_area }}</li>
 						<li class="sParams__item thisBed">{{ item.param_bed }}</li>
 						<li class="sParams__item thisLoc">{{ item.param_loc }}</li>
-					</div>
-					<div class="sApparts__item-bottom">
-						<div class="sPrice" data-styles="fz3" data-fx-currency>{{ item.price }}</div>
+					</ul>
+					<p class="sCatalog__item-description">{{ item.short }}</p>
+					<div class="sCatalog__item-bottom">
+						<span class="sPrice" data-styles="fz3" data-fx-currency>{{ item.price }}</span>
 					</div>
 				</div>
 			</a>
 			{% endfor %}
+			<button data-fx-upload-more class="sButton">Показать все</button>
 		</div>
-		<a href="#" class="sButton" data-styles="more">Посмотреть все</a>
 	</div>
 </section>
 {% endif %}
@@ -314,7 +315,8 @@ sitemapChangefreq = "daily"
 				{% for item in placesList %}
 				<a href="#" class="sPlaces__item swiper-slide" data-fx-clone="10">
 					<picture class="imageArea">
-						<img src="{{ item.gallery[0].path }}" alt="{{ item.title }}">
+						<source srcset="{{ item.gallery[0].thumbUrl(900, auto, { mode: 'exact', quality: 100, extension: 'webp' }) }}" type="image/webp">
+						<img src="{{ item.gallery[0].thumbUrl(900, auto, { mode: 'exact', quality: 100, extension: 'jpg' }) }}" loading="lazy" alt="{{ item.title }}">
 					</picture>
 					<div class="sPlaces__item-content">
 						<h3 class="sTitle" data-styles="cb fz2">{{ item.title }}</h3>
