@@ -1,4 +1,4 @@
-url = "/catalog/:slug"
+url = "/catalog/:id"
 layout = "default"
 title = "Catalog Item"
 meta_title = "Catalog Item"
@@ -8,6 +8,19 @@ meta_description = "Catalog Item"
 sitemapActive = 1
 sitemapPriority = 1.0
 sitemapChangefreq = "daily"
+==
+<?php
+	use Piggy\Catalog\Models\Build;
+
+	function onStart() {
+		$currentId = $this->param('id');
+		$currentBuild = Build::all()->where('active', true)->where('id', $currentId)->first();
+
+		if (!$currentBuild) {
+			return $this->controller->run('404');
+		}
+	}
+?>
 ==
 <section>
 	<div class="container">
