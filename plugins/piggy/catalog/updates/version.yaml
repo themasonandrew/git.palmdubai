@@ -69,3 +69,9 @@ v1.0.23:
 v1.0.24:
     - 'Updated table piggy_catalog_places'
     - builder_table_update_piggy_catalog_places_6.php
+v1.0.25:
+    - 'Updated table piggy_catalog_builds'
+    - builder_table_update_piggy_catalog_builds_9.php
+v1.0.26:
+    - 'Updated table piggy_catalog_apparts'
+    - builder_table_update_piggy_catalog_apparts_7.php
