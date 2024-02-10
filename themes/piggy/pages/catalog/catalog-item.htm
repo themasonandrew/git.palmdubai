@@ -15,41 +15,45 @@ sitemapChangefreq = "daily"
 	function onStart() {
 		$currentId = $this->param('id');
 		$currentBuild = Build::all()->where('active', true)->where('id', $currentId)->first();
-
+		$this['currentBuild'] = $currentBuild;
 		if (!$currentBuild) {
 			return $this->controller->run('404');
 		}
 	}
 ?>
 ==
+{% put breads %}
+<li>
+	<a href="{{ url('/') }}/catalog">Каталог</a>
+</li>
+{% endput %}
 <section>
 	<div class="container">
 		<div class="sDoubleTitle">
 			<div class="sDoubleTitle__title">
-				<h2 class="sTitle"><span>Five Palm Jumeira</span></h2>
+				<h1 class="sTitle"><span>{{ currentBuild.title }}</span></h1>
 			</div>
 			<div class="sDoubleTitle__action">
-				<a href="#" class="sButton">Показать все</a>
+				<a href="#" class="sButton">К новостройкам</a>
 			</div>
 		</div>
-		<div class="sGallery this3">
-			{% for item in configContent.gallery.list %}
-			<a href="#" data-fancybox="gallery" data-src="{{ item.image.path }}" data-caption="{{ item.title }}" class="sGallery__item">
-				<picture class="imageArea">
-					<img src="{{ item.image.path }}" loading="lazy" alt="{{ item.title }}">
-				</picture>
-			</a>
+		<div class="sViews" data-styles="build">
+			{% for item in currentBuild.gallery %}
+			<picture data-fancybox="buildGallery" data-src="{{ item.path }}" class="imageArea">
+				<source srcset="{{ item.thumbUrl(900, auto, { mode: 'exact', quality: 100, extension: 'webp' }) }}" type="image/webp">
+				<img src="{{ item.thumbUrl(900, auto, { mode: 'exact', quality: 100, extension: 'jpg' }) }}" alt="Изображение {{ currentBuild.title }}" loading="lazy">
+			</picture>
 			{% endfor %}
 		</div>
 		<div class="sCard">
 			<div class="sCard__left">
-				<h3 class="sTitle" data-styles="fz3"><span>Five Palm Jumeirah — комплекс отельных номеров, апартаментов и вилл на искусственном острове <mark>Palm Jumeirah</mark> в Персидском заливе</span></h3>
-				<p class="sSubtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim optio veritatis beatae, dignissimos illum aperiam modi voluptates nam corrupti provident fugit. Quas natus laboriosam a eum, nam exercitationem recusandae vitae aperiam nobis odit. Maxime, nemo fugiat dicta incidunt debitis quo veniam vel. Voluptatem odio libero cum suscipit tempora tempore corporis!</p>
+				<h2 class="sTitle" data-styles="fz3 thin"><span>Five Palm Jumeirah — комплекс отельных номеров, апартаментов и вилл на искусственном острове <mark>Palm Jumeirah</mark> в Персидском заливе</span></h2>
+				<p class="sSubtitle" data-styles="thin">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim optio veritatis beatae, dignissimos illum aperiam modi voluptates nam corrupti provident fugit. Quas natus laboriosam a eum, nam exercitationem recusandae vitae aperiam nobis odit. Maxime, nemo fugiat dicta incidunt debitis quo veniam vel. Voluptatem odio libero cum suscipit tempora tempore corporis!</p>
 			</div>
 			<div class="sCard__right">
-				<span class="sCard__right-loc"></span>
+				<span class="sCard__right-loc">Palm Jumeirah Al Khail, Dubai Internet City</span>
 				<p class="sCard__right-price"><span class="sPrice" data-fx-currency>8990000</span></p>
-				<p class="sCard__right-price"><span class="sPrice" data-fx-currency>3698</span> за м2</p>
+				<p class="sCard__right-price thisM2"><span class="sPrice" data-styles="fzs" data-fx-currency>3698</span> за м²</p>
 				<div class="sManager">
 					<div class="sManager__face imageArea">
 						<img src="{{ 'assets/img/manager.png'|theme }}" alt="">
