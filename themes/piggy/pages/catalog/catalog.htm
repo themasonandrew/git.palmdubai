@@ -1,8 +1,8 @@
 url = "/catalog"
 layout = "default"
-title = "Catalog"
-meta_title = "Catalog"
-meta_description = "Catalog"
+title = "Каталог новостроек"
+meta_title = "Каталог новостроек"
+meta_description = "Каталог новостроек"
 
 [viewBag]
 sitemapActive = 1
@@ -14,7 +14,7 @@ sitemapChangefreq = "daily"
 		<div class="sDoubleTitle">
 			<div class="sDoubleTitle__title">
 				<h2 class="sTitle"><span>Жилые комплексы на <mark>Palm Jumeira</mark></span></h2>
-				<p class="sSubtitle">Подерите новостройки на Пальме Джумейра, главной достопримечательности Дубая, расположенной рядом с крупнейшей живописной гаванью города.</p>
+				<p class="sSubtitle" data-styles="full">Подерите новостройки на Пальме Джумейра, главной достопримечательности Дубая, расположенной рядом с крупнейшей живописной гаванью города.</p>
 			</div>
 		</div>
 		<div class="sApparts__pre">
@@ -31,7 +31,7 @@ sitemapChangefreq = "daily"
 			{% endif %}
 			{% endif %}
 			{% endfor %}
-			<a href="{{ item.slug }}" class="sApparts__item" data-fx-clone="2" data-fx-upload-item>
+			<a href="{{ item.slug }}" class="sApparts__item" data-fx-upload-item>
 				<picture class="imageArea">
 					<img src="{{ item.gallery[0].path }}" alt="">
 				</picture>

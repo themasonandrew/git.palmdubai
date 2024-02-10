@@ -4404,6 +4404,9 @@ section[data-styles*=mp] {
   width: 100%;
   max-width: 820px;
 }
+.sSubtitle[data-styles=full] {
+  max-width: 100%;
+}
 
 .sPrice {
   display: -webkit-box;

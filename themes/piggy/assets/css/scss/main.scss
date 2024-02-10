@@ -300,6 +300,9 @@ section {
 	text-align: left;
 	width: 100%;
 	max-width: 820px;
+	&[data-styles="full"] {
+		max-width: 100%;
+	}
 }
 
 .sPrice {
@@ -2087,7 +2090,7 @@ section {
 .sTopSwiper {
 	display: flex;
 	overflow: hidden;
-	
+
 	&__item {
 		width: 100%;
 		display: flex;
