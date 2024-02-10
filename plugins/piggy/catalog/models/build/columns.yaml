@@ -1,19 +1,23 @@
 columns:
-    id:
-        label: id
-        type: number
-    created_at:
-        label: created_at
-        type: datetime
-    updated_at:
-        label: updated_at
-        type: datetime
     title:
-        label: title
+        label: Название
         type: text
+        sortable: true
     slug:
-        label: slug
+        label: Ссылка
         type: text
+        sortable: true
+    gallery:
+        label: Превью
+        type: image
+        width: 50
+        height: 50
+        sortable: false
     active:
-        label: active
+        label: Активно
+        type: switch
+        sortable: true
+    sort_order:
+        label: Порядок
         type: text
+        sortable: true
