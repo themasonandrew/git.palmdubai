@@ -117,7 +117,6 @@ sitemapChangefreq = "daily"
 		<div class="sHotels swiper">
 			<div class="swiper-wrapper">
 				{% for item in buildsList %}
-				{% if item.new %}
 				<a href="#" class="sHotels__item swiper-slide">
 					<picture class="imageArea">
 						<img src="{{ item.gallery[0].path }}" alt="{{ item.title }}">
@@ -128,7 +127,6 @@ sitemapChangefreq = "daily"
 						<span class="sPrice" data-fx-currency>11500</span>
 					</div>
 				</a>
-				{% endif %}
 				{% endfor %}
 			</div>
 		</div>
