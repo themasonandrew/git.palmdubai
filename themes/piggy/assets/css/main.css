@@ -4100,9 +4100,6 @@ input[type=text] ~ .passwordArea__button::before {
 html {
   background: #01395d;
 }
-html body {
-  background: linear-gradient(179deg, rgba(12, 150, 159, 0) 0.76%, rgba(12, 150, 159, 0.3) 33.13%, rgba(12, 150, 159, 0) 74.62%);
-}
 html body:not(#home) main {
   padding-top: 120px;
 }
@@ -5729,6 +5726,7 @@ section[data-styles*=separator] .container {
 .sAbout__text p {
   display: block;
   font-size: 1.4rem;
+  font-weight: 400;
   line-height: 1.7;
   color: #ffffff;
 }
@@ -6726,10 +6724,11 @@ section[data-styles*=separator] .container {
   grid-gap: 16px;
 }
 .sCatalog__pre {
-  margin-bottom: 12px;
+  margin-bottom: 24px;
   display: block;
   font-family: "Hagrid", sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
+  font-weight: normal;
   color: #ffffff;
   text-align: left;
 }
@@ -6908,6 +6907,118 @@ section[data-styles*=separator] .container {
 }
 .sCatalog[data-styles*=mainy] .sCatalog__item:first-child .sCatalog__item-content > * + * {
   margin-top: 16px !important;
+}
+.sCatalog[data-styles*=cats] {
+  grid-gap: 24px;
+}
+.sCatalog[data-styles*=cats] .sCatalog__item .imageArea {
+  height: 100%;
+}
+.sCatalog[data-styles*=cats] .sCatalog__item-content {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.sCatalog[data-styles*=cats] .sCatalog__item .sParams__item {
+  color: #01395d;
+  font-weight: 500;
+}
+.sCatalog[data-styles*=cats] .sCatalog__item-bottom {
+  margin-top: 32px;
+}
+.sCatalog[data-styles*=cats] .sCatalog__item-bottom::before {
+  content: "Подробнее";
+  width: auto;
+  height: 48px;
+  padding: 0 40px;
+  background: #ffc270;
+  color: #ffffff;
+  border-radius: 30px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 600;
+}
+.sCatalog[data-styles*=cats] .sCatalog__item:hover .sCatalog__item-bottom::before {
+  color: #ffffff !important;
+  background: #01395d !important;
+}
+
+.sBackground {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: auto;
+}
+.sBackground::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left bottom, left top, from(#01395d), color-stop(70%, #013a5d), color-stop(85%, rgba(1, 58, 93, 0.8352941176)), to(rgba(1, 58, 93, 0.4745098039)));
+  background: linear-gradient(0, #01395d 0%, #013a5d 70%, rgba(1, 58, 93, 0.8352941176) 85%, rgba(1, 58, 93, 0.4745098039) 100%);
+}
+.sBackground::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left bottom, left top, from(#01395d), color-stop(70%, #013a5d), color-stop(85%, rgba(1, 58, 93, 0.8352941176)), to(rgba(1, 57, 93, 0.4745098039)));
+  background: linear-gradient(0, #01395d 0%, #013a5d 70%, rgba(1, 58, 93, 0.8352941176) 85%, rgba(1, 57, 93, 0.4745098039) 100%);
+}
+.sBackground ~ section {
+  z-index: 2;
+  position: relative;
+}
+
+main section {
+  z-index: 5;
+  position: relative;
+}
+
+.thisGradient {
+  z-index: 0;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  background: #016079;
+}
+.thisGradient::before, .thisGradient::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 700px;
+  background: -webkit-gradient(linear, left bottom, left top, from(#016079), color-stop(30%, #016079), to(rgba(1, 97, 121, 0)));
+  background: linear-gradient(0, #016079 0%, #016079 30%, rgba(1, 97, 121, 0) 100%);
+}
+.thisGradient::before {
+  bottom: 100%;
+}
+.thisGradient::after {
+  top: 100%;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 @media screen and (max-width: 1700px) {

@@ -11,6 +11,13 @@ tabs:
             commentAbove: Адрес
             span: full
             type: text
+        subtitle:
+            tab: Основное
+            commentAbove: 'Подзаголовок {{ & }} для цветового выделения'
+            span: full
+            type: text
+            attributes:
+                maxlength: '1000'
         short:
             tab: Основное
             commentAbove: 'Короткое описание'

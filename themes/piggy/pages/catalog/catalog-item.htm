@@ -1,8 +1,8 @@
 url = "/catalog/:id"
 layout = "default"
-title = "Catalog Item"
-meta_title = "Catalog Item"
-meta_description = "Catalog Item"
+title = "Новостройка"
+meta_title = ""
+meta_description = ""
 
 [viewBag]
 sitemapActive = 1
@@ -17,6 +17,14 @@ sitemapChangefreq = "daily"
 		$currentId = $this->param('id');
 		$currentBuild = Build::all()->where('active', true)->where('id', $currentId)->first();
 		$this['currentBuild'] = $currentBuild;
+
+		if ($currentBuild) {
+			$this->page->title = $currentBuild->title;
+			$this->page->meta_title = $currentBuild->meta_title;
+			$this->page->meta_description = $currentBuild->meta_description;
+			$this->page->meta_robots = $currentBuild->meta_robots;
+			$this->page->meta_keywords = $currentBuild->meta_keywords;
+		}
 
 		$currentApparts = Appart::all()->where('active', true)->where('build_id', '==', $currentId);
 		$this['currentApparts'] = $currentApparts;
@@ -52,13 +60,26 @@ sitemapChangefreq = "daily"
 		</div>
 		<div class="sCard">
 			<div class="sCard__left">
-				<h2 class="sTitle" data-styles="fz3 "><span>Five Palm Jumeirah — комплекс отельных номеров, апартаментов и вилл на искусственном острове <mark>Palm Jumeirah</mark> в Персидском заливе</span></h2>
-				<p class="sSubtitle" data-styles="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim optio veritatis beatae, dignissimos illum aperiam modi voluptates nam corrupti provident fugit. Quas natus laboriosam a eum, nam exercitationem recusandae vitae aperiam nobis odit. Maxime, nemo fugiat dicta incidunt debitis quo veniam vel. Voluptatem odio libero cum suscipit tempora tempore corporis!</p>
+				{% if currentBuild.subtitle %}
+				<h2 class="sTitle" data-styles="fz3 "><span>{{ currentBuild.subtitle|replace({'{{':'<mark>','}}':'</mark>'})|raw }}</span></h2>
+				{% endif %}
+				{% if currentBuild.short %}
+				<p class="sSubtitle" data-styles="">{{ currentBuild.short }}</p>
+				{% endif %}
 			</div>
 			<div class="sCard__right">
-				<span class="sCard__right-loc">Palm Jumeirah Al Khail, Dubai Internet City</span>
-				<p class="sCard__right-price"><span class="sPrice" data-fx-currency>8990000</span></p>
-				<p class="sCard__right-price thisM2"><span class="sPrice" data-styles="fzs" data-fx-currency>3698</span> за м²</p>
+				{% if currentBuild.address %}
+				<span class="sCard__right-loc">{{ currentBuild.address }}</span>
+				{% endif %}
+				{% if currentApparts|length %}
+				{% set minPrice = 99999999999 %}
+				{% set minArea = 1 %}
+				{% for item in currentApparts %}
+				{% if item.price < minPrice %}{% set minPrice = item.price %}{% set minArea = item.param_area %}{% endif%}
+				{% endfor %}
+				<p class="sCard__right-price"><span class="sPrice" data-fx-currency>{{ minPrice }}</span></p>
+				<p class="sCard__right-price thisM2"><span class="sPrice" data-styles="fzs" data-fx-currency>{{ minPrice / minArea }}</span> за м²</p>
+				{% endif %}
 				<div class="sManager">
 					<div class="sManager__face imageArea">
 						<img src="{{ 'assets/img/manager.png'|theme }}" alt="">
@@ -77,7 +98,7 @@ sitemapChangefreq = "daily"
 	<div class="container">
 		<div class="sDoubleTitle">
 			<div class="sDoubleTitle__title">
-				<h2 class="sTitle" data-styles="fz3"><span>Наш выбор в <mark>Five Palm Jumeira</mark></span></h2>
+				<h2 class="sTitle" data-styles="fz3"><span>Наш выбор в <mark>{{ currentBuild.title}}</mark></span></h2>
 				<p class="sSubtitle" data-styles="full">Вы можете выбрать как уютную студию, там и просторные апартамента с 1-4 спальнями. Для особых ценителей роскоши представлены пентхаусы на высоте птичьего полета.</p>
 			</div>
 		</div>

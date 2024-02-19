@@ -1,8 +1,8 @@
 url = "/catalog"
 layout = "default"
 title = "Каталог новостроек"
-meta_title = "Каталог новостроек"
-meta_description = "Каталог новостроек"
+meta_title = "Каталог новостроек на острове Palm Jumeirah"
+meta_description = ""
 
 [viewBag]
 sitemapActive = 1
@@ -13,12 +13,12 @@ sitemapChangefreq = "daily"
 	<div class="container">
 		<div class="sDoubleTitle">
 			<div class="sDoubleTitle__title">
-				<h1 class="sTitle"><span>Жилые комплексы на <mark>Palm Jumeira</mark></span></h1>
-				<p class="sSubtitle" data-styles="full">Подерите новостройки на Пальме Джумейра, главной достопримечательности Дубая, расположенной рядом с крупнейшей живописной гаванью города.</p>
+				<h1 class="sTitle"><span>Жилые комплексы на <mark>Palm Jumeirah</mark></span></h1>
+				<p class="sSubtitle" data-styles="full">Посмотрите новостройки на Пальме Джумейра, главной достопримечательности Дубая, расположенной рядом с крупнейшей живописной гаванью города.</p>
 			</div>
 		</div>
 		<p class="sCatalog__pre">Мы нашли <span data-fx-numword data-fx-numword-after="объект для покупки, объекта для покупки, объектов для покупки">{{ appartsList|length }}</span> в <span data-fx-numword data-fx-numword-after="новостройке, новостройках, новостройках">{{ buildsList|length }}</span></p>
-		<div class="sCatalog" data-fx-upload data-fx-upload-type="semiauto" data-fx-upload-start="7" data-fx-upload-step="7">
+		<div class="sCatalog" data-styles="cats" data-fx-upload data-fx-upload-type="semiauto" data-fx-upload-start="7" data-fx-upload-step="7">
 			{% for item in buildsList %}
 			{% set buildId = item.id %}
 			{% set minPrice = 999999999999 %}
@@ -35,7 +35,7 @@ sitemapChangefreq = "daily"
 					<img src="{{ item.gallery[0].thumbUrl(900, auto, { mode: 'exact', quality: 100, extension: 'jpg' }) }}" loading="lazy" alt="{{ item.title }}">
 				</picture>
 				<div class="sCatalog__item-content">
-					<h2 class="sTitle" data-styles="cb fzs">{{ item.title }}</h2>
+					<h2 class="sTitle" data-styles="cb fz3">{{ item.title }}</h2>
 					<ul class="sParams">
 						<li class="sParams__item thisLoc">{{ item.address }}</li>
 					</ul>

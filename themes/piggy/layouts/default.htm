@@ -64,7 +64,10 @@ handle = "Config\Text"
 <body id="{{ this.page.id }}">
 	{% partial 'header' %}
 	<main>
+		{% if this.page.id != 'home' %}
+		{% partial 'background' %}
 		{% partial 'breads' %}
+		{% endif %}
 		{% page %}
 	</main>
 	{% partial 'footer' %}

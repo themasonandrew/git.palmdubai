@@ -130,7 +130,7 @@ document.querySelectorAll('.sAbout__more').forEach(function (each) {
 // sHotels
 const sTopswiperSwiper = new Swiper('.sTopSwiper.swiper', {
 	slidesPerView: 1,
-	effect: 'fade',
+	// effect: 'slide',
 	autoplay: {
 		delay: 5000,
 		disableOnInteraction: true,
