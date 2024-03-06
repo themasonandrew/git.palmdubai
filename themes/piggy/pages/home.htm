@@ -23,15 +23,16 @@ sitemapChangefreq = "daily"
 	/* builds */
 	const builds = {
 	{% for item in buildsListMap %}
-		{{ item.id }}: {
-			imagePath: '{{item.gallery[0].path }}',
-				name: '{{item.title}}',
-					description: '{{item.short}}',
-						price: 155,
-							area: 155
-		},
+	"{{item.id}}": {
+		imagePath: '{{item.gallery[0].path }}',
+		name: '{{item.title}}',
+		description: '{{item.short}}',
+		price: 155,
+		area: 155
+	},
 	{% endfor %}
 	}
+	console.log(builds);
 	// <path class="sMap__wrap-build" data-fx-tooltip data-build="1" d="M638.5,678.5l53-22v-5.3l-12-9.7l-6,1 c0,0-8-2-10-10s-4-30-5-65l-10-10l-8,4c0,0,5.1,33,7.1,49.5c0.8,6.9,1.7,18.1,0.9,25.5c-1.1,10.4-4.8,16.4-10,20l-11,5v6 L638.5,678.5z" />
 	// <polygon class="sMap__wrap-build" data-fx-tooltip data-build="2" points="590.5,210.5 580.5,204.5 580.5,194.5 593.5,187.5 599.5,190.5 599.5,185.5 613.5,179.5 619.5,181.5  619.5,170.2 648.5,157.5 658.5,162.5 659.5,180.5 630.5,192.5 625.5,189.5 625.5,194.5 610.5,201.5 606.5,198.5 606.5,202.5 " />
 	// <polygon class="sMap__wrap-build" data-fx-tooltip data-build="2" points="661.5,154.5 697.5,150.5 699.5,156.5 699.5,172.5 664.5,179.5 662.5,175.5 " />
