@@ -177,8 +177,10 @@ sitemapChangefreq = "daily"
 		<div class="sDoubleTitle">
 			<div class="sDoubleTitle__title">
 				<h2 class="sTitle"><span>{{ configContent.about.who_title|raw }}</span></h2>
-				<p class="sSubtitle">{{ configContent.about.who_subtitle }}</p>
 			</div>
+		</div>
+		<div class="sTemplate">
+			{{ configContent.about.who_text|raw }}
 		</div>
 		<div class="sImageGrid">
 			{% for item in configContent.about.who_images %}
