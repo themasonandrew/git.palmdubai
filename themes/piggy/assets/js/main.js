@@ -8,7 +8,41 @@ colorTogglerInput.addEventListener('change', function (e) {
 	}
 })
 
-
+/* .sTemplateGallery */
+document.querySelectorAll('.sTemplateGallery.swiper').forEach(function (each) {
+	const index = each.dataset.swiper
+	const mainSwiper = `.sTemplateGallery.swiper[data-swiper=${index}]`
+	const thumbsSwiper = `.sTemplateGalleryThumbs.swiper[data-swiper=${index}]`
+	if (document.querySelector(thumbsSwiper)) {
+		const unicVariableUsingIndexThumb = new Swiper(thumbsSwiper, {
+			slidesPerView: 3,
+			spaceBetween: 8,
+			watchSlidesProgress: true,
+			breakpoints: {
+				500: {
+					slidesPerView: 4,
+					spaceBetween: 8,
+				},
+			},
+		})
+		new Swiper(mainSwiper, {
+			slidesPerView: 1,
+			spaceBetween: 12,
+			autoHeight: true,
+			watchSlidesProgress: true,
+			thumbs: {
+				swiper: unicVariableUsingIndexThumb,
+			},
+		})
+	} else {
+		new Swiper(mainSwiper, {
+			slidesPerView: 1,
+			spaceBetween: 12,
+			autoHeight: true,
+			watchSlidesProgress: true,
+		})
+	}
+})
 
 /* builds */
 const builds = {

@@ -6692,6 +6692,95 @@ section[data-styles*=separator] .container {
   color: #ffffff;
 }
 
+.sStructure {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 24px 32px;
+  border-radius: 12px;
+}
+.sStructure .sTitle + * {
+  margin-top: 16px;
+}
+.sStructure__item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.sStructure__item + .sStructure__item {
+  margin-top: 6px;
+}
+.sStructure__item-number {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 24px;
+  min-width: 24px;
+  margin-right: 8px;
+  color: #17272d !important;
+}
+.sStructure__item:hover {
+  color: #566064;
+}
+
+.sTemplateGallery {
+  margin-top: 24px !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+.sTemplateGallery .swiper-slide {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+.sTemplateGallery .swiper-slide img {
+  border-radius: 8px !important;
+}
+.sTemplateGallery + * {
+  margin-top: 24px !important;
+}
+.sTemplateGallery + .sTemplateGalleryThumbs {
+  margin-top: 8px !important;
+}
+
+.sTemplateGalleryThumbs {
+  border-radius: 6px;
+  overflow: hidden !important;
+}
+.sTemplateGalleryThumbs + * {
+  margin-top: 32px !important;
+}
+.sTemplateGalleryThumbs .swiper-slide {
+  height: 140px;
+  border-radius: 6px;
+  overflow: hidden;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.sTemplateGalleryThumbs .swiper-slide img {
+  border-radius: 6px !important;
+}
+.sTemplateGalleryThumbs .swiper-slide.swiper-slide-thumb-active {
+  opacity: 0.7;
+}
+
 .sGallery {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
