@@ -17,6 +17,8 @@ class Build extends Model
 		'title' => 'required',
 		'slug' => 'required'
 	];
+	protected $jsonable = ['map_coords'];
+	
   public $attachMany = [
 		'gallery'=>'System\Models\File'
 	];

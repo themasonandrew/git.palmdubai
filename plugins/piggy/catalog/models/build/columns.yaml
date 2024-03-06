@@ -7,6 +7,10 @@ columns:
         label: Адрес
         type: text
         sortable: true
+    map_active:
+        label: На карте
+        type: switch
+        sortable: true
     new:
         label: В разделе новых
         type: switch

@@ -78,3 +78,6 @@ v1.0.26:
 v1.0.27:
     - 'Updated table piggy_catalog_builds'
     - builder_table_update_piggy_catalog_builds_10.php
+v1.0.28:
+    - 'Updated table piggy_catalog_builds'
+    - builder_table_update_piggy_catalog_builds_11.php

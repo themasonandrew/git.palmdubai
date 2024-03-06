@@ -44,51 +44,6 @@ document.querySelectorAll('.sTemplateGallery.swiper').forEach(function (each) {
 	}
 })
 
-/* builds */
-const builds = {
-	1: {
-		imagePath: '/assets/img/appart.png',
-		name: 'Уютный коттедж',
-		description: 'Прекрасный дом для семьи, окруженный зеленым садом.',
-		price: 250000,
-		area: 180
-	},
-	2: {
-		imagePath: '/assets/img/appart.png',
-		name: 'Модерн-стайл апартаменты',
-		description: 'Стильные и современные апартаменты в центре города.',
-		price: 180000,
-		area: 120
-	},
-	3: {
-		imagePath: '/assets/img/appart.png',
-		name: 'Дача на берегу озера',
-		description: 'Уединенное место с видом на озеро, идеальное для отдыха.',
-		price: 120000,
-		area: 150
-	},
-	4: {
-		imagePath: '/assets/img/appart.png',
-		name: 'Уютный коттедж',
-		description: 'Прекрасный дом для семьи, окруженный зеленым садом.',
-		price: 250000,
-		area: 180
-	},
-	5: {
-		imagePath: '/assets/img/appart.png',
-		name: 'Модерн-стайл апартаменты',
-		description: 'Стильные и современные апартаменты в центре города.',
-		price: 180000,
-		area: 120
-	},
-	6: {
-		imagePath: '/assets/img/appart.png',
-		name: 'Дача на берегу озера',
-		description: 'Уединенное место с видом на озеро, идеальное для отдыха.',
-		price: 120000,
-		area: 150
-	}
-}
 /* Build - data-fx-tooltip */
 document.addEventListener('DOMContentLoaded', function () {
 	document.querySelectorAll('[data-fx-tooltip]').forEach(function (each) {

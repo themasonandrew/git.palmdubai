@@ -24,6 +24,30 @@ tabs:
             span: full
             type: textarea
             size: small
+        map_active:
+            tab: Координаты
+            label: Активно
+            span: full
+            type: switch
+        map_coords:
+            tab: Координаты
+            commentAbove: Координаты для карты
+            span: full
+            type: repeater
+            form:
+                fields:
+                    tag:
+                        commentAbove: Тег (например polygon, path)
+                        span: full
+                        type: text
+                        attributes:
+                            maxlength: '1000'
+                    coords:
+                        commentAbove: Координаты
+                        span: full
+                        type: text
+                        attributes:
+                            maxlength: '1000'
         meta_title:
             tab: SEO
             commentAbove: Seo Title
