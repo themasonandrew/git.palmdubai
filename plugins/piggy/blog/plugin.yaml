@@ -23,10 +23,3 @@ navigation:
                 label: Категории
                 url: piggy/blog/categories
                 icon: icon-book
-permissions:
-    blog-categories:
-        tab: Blog
-        label: Categories
-    blog-posts:
-        tab: Blog
-        label: Posts
