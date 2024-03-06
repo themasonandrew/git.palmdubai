@@ -5,8 +5,71 @@ name: Текст
 drafts: false
 
 navigation:
-    parent: Config\Main
-    icon: icon-heart
-    order: 3
+   parent: Config\Main
+   icon: icon-heart
+   order: 3
 
 fields:
+   ##
+   about_home:
+      tab: Низ на главной
+      type: nestedform
+      showPanel: false
+      form:
+         fields:
+            title:
+               commentAbove: Заголовок секции
+               span: full
+               type: text
+            text:
+               commentAbove: Текст
+               span: full
+               type: richeditor
+               size: giant
+   ##
+   about_catalog:
+      tab: Низ в каталоге
+      type: nestedform
+      showPanel: false
+      form:
+         fields:
+            title:
+               commentAbove: Заголовок секции
+               span: full
+               type: text
+            text:
+               commentAbove: Текст
+               span: full
+               type: richeditor
+               size: giant
+      ##
+   about_about:
+      tab: Низ в о нас
+      type: nestedform
+      showPanel: false
+      form:
+         fields:
+            title:
+               commentAbove: Заголовок секции
+               span: full
+               type: text
+            text:
+               commentAbove: Текст
+               span: full
+               type: richeditor
+               size: giant
+   about_blog:
+      tab: Низ в блоге
+      type: nestedform
+      showPanel: false
+      form:
+         fields:
+            title:
+               commentAbove: Заголовок секции
+               span: full
+               type: text
+            text:
+               commentAbove: Текст
+               span: full
+               type: richeditor
+               size: giant

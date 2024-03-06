@@ -115,19 +115,3 @@ fields:
                                 type: fileupload
                                 mode: image
                                 maxFiles: 1
-    ##
-    about:
-        tab: About
-        type: nestedform
-        showPanel: false
-        form:
-            fields:
-                title:
-                    commentAbove: Заголовок секции
-                    span: full
-                    type: text
-                text:
-                    commentAbove: Текст
-                    span: full
-                    type: richeditor
-                    size: giant
