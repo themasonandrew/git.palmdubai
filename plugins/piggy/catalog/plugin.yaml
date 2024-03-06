@@ -23,3 +23,21 @@ navigation:
                 label: Места
                 url: piggy/catalog/places
                 icon: icon-sitemap
+    blog:
+        label: Блог
+        url: piggy/blog/posts
+        icon: icon-bookmark
+        order: '901'
+        sideMenu:
+            blog-new:
+                label: Новая публикация
+                url: piggy/blog/posts/create
+                icon: icon-bookmark
+            blog-all:
+                label: Публикации
+                url: piggy/blog/posts
+                icon: icon-bookmark
+            blog-categories:
+                label: Категории
+                url: piggy/blog/categories
+                icon: icon-book
