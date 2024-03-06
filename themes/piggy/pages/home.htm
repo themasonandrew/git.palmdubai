@@ -25,6 +25,7 @@ sitemapChangefreq = "daily"
 	}
 ?>
 ==
+{# Карта #}
 <section class="sMap">
 	<div class="sMap__wrap">
 		<svg viewBox="0 0 2150 1080" preserveAspectRatio="xMidYMid slice">
@@ -98,7 +99,7 @@ sitemapChangefreq = "daily"
 		</div>
 	</div>
 </section>
-<!-- sHotels -->
+{# Новостройки #}
 {% if buildsList|length %}
 <section data-styles="overflow">
 	<div class="container">
@@ -133,6 +134,7 @@ sitemapChangefreq = "daily"
 	</div>
 </section>
 {% endif %}
+{# Новые новостройки #}
 {% if buildsListNew|length %}
 <section>
 	<div class="container">
@@ -159,6 +161,7 @@ sitemapChangefreq = "daily"
 	</div>
 </section>
 {% endif %}
+{# Месяц и лучшие предложения квартиры #}
 {% if appartsList|length %}
 <section>
 	<div class="container">
@@ -197,6 +200,7 @@ sitemapChangefreq = "daily"
 	</div>
 </section>
 {% endif %}
+{# Обратная связь #}
 <section data-styles="overflow">
 	<div class="container">
 		<div class="sCallback">
@@ -215,6 +219,7 @@ sitemapChangefreq = "daily"
 		</div>
 	</div>
 </section>
+{# Галерея #}
 {% if configContent.gallery.list|length %}
 <section>
 	<div class="container">
@@ -236,13 +241,14 @@ sitemapChangefreq = "daily"
 	</div>
 </section>
 {% endif %}
+{# Отзывы #}
 {% if configContent.reviews.list|length %}
 <section data-styles="overflow">
 	<div class="container">
 		<div class="sDoubleTitle">
 			<div class="sDoubleTitle__title">
-				<h2 class="sTitle"><span>{{ configContent.features.title }}</span></h2>
-				<p class="sSubtitle">{{ configContent.features.subtitle }}</p>
+				<h2 class="sTitle"><span>{{ configContent.reviews.title }}</span></h2>
+				<p class="sSubtitle">{{ configContent.reviews.subtitle }}</p>
 			</div>
 			<div class="sDoubleTitle__action">
 				<div class="sArrows">
@@ -270,7 +276,9 @@ sitemapChangefreq = "daily"
 	</div>
 </section>
 {% endif %}
+{# Вставка градиента #}
 <div class="thisGradient"></div>
+{# Преимущества/достопримечательности #}
 {% if configContent.features.list|length %}
 <section>
 	<div class="container">
@@ -293,11 +301,13 @@ sitemapChangefreq = "daily"
 	</div>
 </section>
 {% endif %}
+{# Яндекс карта #}
 <section data-styles="np">
 	<div class="container full np">
 		<div id="yandexmap"></div>
 	</div>
 </section>
+{# Места #}
 <section data-styles="overflow bgblue mp">
 	<div class="container">
 		<div class="sDoubleTitle">
@@ -330,6 +340,7 @@ sitemapChangefreq = "daily"
 		</div>
 	</div>
 </section>
+{# Обратная связь 2 #}
 <section data-styles="overflow bggradien1 mp">
 	<div class="container">
 		<div class="sCallback thisBlue">

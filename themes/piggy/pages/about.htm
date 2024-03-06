@@ -9,3 +9,270 @@ sitemapActive = 1
 sitemapPriority = 1.0
 sitemapChangefreq = "daily"
 ==
+<section>
+	<div class="container">
+		<div class="sDoubleTitle">
+			<div class="sDoubleTitle__title">
+				<h2 class="sTitle"><span>О <mark>Palm Jumeirah</mark></span></h2>
+				<p class="sSubtitle">Найдите недвижимость на побережье Персидского заливана знаменитом острове Пальма Джумейра для комфортной красивой жизни и инвестиций</p>
+			</div>
+		</div>
+		<div class="sImage">
+			<img src="{{ '/assets/img/appart.png'|theme }}" alt="">
+		</div>
+	</div>
+</section>
+{# Образ жизни #}
+<section>
+	<div class="container">
+		<div class="sDoubleTitle">
+			<div class="sDoubleTitle__title">
+				<h2 class="sTitle"><span>Образ жизни</span></h2>
+				<p class="sSubtitle">Найдите недвижимость на побережье Персидского заливана знаменитом острове Пальма Джумейра для комфортной красивой жизни и инвестиций</p>
+			</div>
+		</div>
+		<div class="sTemplate">
+			<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid, voluptatum!</p>
+		</div>
+		<div class="sImageGrid">
+			<div class="sImageGrid__item">
+				<img src="{{ '/assets/img/appart.png'|theme }}" alt="">
+			</div>
+			<div class="sImageGrid__item">
+				<img src="{{ '/assets/img/appart.png'|theme }}" alt="">
+			</div>
+		</div>
+	</div>
+</section>
+{# инфраструктура #}
+<section>
+	<div class="container">
+		<div class="sDoubleTitle">
+			<div class="sDoubleTitle__title">
+				<h2 class="sTitle"><span>Инфраструктура</span></h2>
+			</div>
+		</div>
+		<div class="sTemplate">
+			<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid, voluptatum!</p>
+		</div>
+	</div>
+	<div class="container full np thismargin">
+		<div id="yandexmap"></div>
+	</div>
+	<div class="container">
+		<div class="sTemplate">
+			<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid, voluptatum!</p>
+		</div>
+		<div class="sImageGrid">
+			<div class="sImageGrid__item">
+				<img src="{{ '/assets/img/appart.png'|theme }}" alt="">
+			</div>
+			<div class="sImageGrid__item">
+				<img src="{{ '/assets/img/appart.png'|theme }}" alt="">
+			</div>
+			<div class="sImageGrid__item">
+				<img src="{{ '/assets/img/appart.png'|theme }}" alt="">
+			</div>
+			<div class="sImageGrid__item">
+				<img src="{{ '/assets/img/appart.png'|theme }}" alt="">
+			</div>
+		</div>
+	</div>
+</section>
+{# Обратная связь #}
+<section data-styles="overflow">
+	<div class="container">
+		<div class="sCallback">
+			<form action="#" class="sCallback__form">
+				<h2 class="sTitle" data-styles="fz1"><span>Полный каталог новостроек на <mark>Palm Jumeirah</mark> для жизни и инвестирования</span></h2>
+				<div class="sCallback__form-body">
+					<input type="text" placeholder="Ваше имя">
+					<input type="tel" placeholder="Номер телефона">
+					<button type="submit" class="sButton">Получить каталог</button>
+				</div>
+				<p class="sCallback__form-rules">Отправляя данную форму вы соглашаетесь с политикой конфиденциальности</p>
+			</form>
+			<div class="sCallback__image">
+				<img src="{{ '/assets/img/book.png'|theme }}" alt="">
+			</div>
+		</div>
+	</div>
+</section>
+{# Новостройки #}
+{% if buildsList|length %}
+<section data-styles="overflow">
+	<div class="container">
+		<div class="sDoubleTitle">
+			<div class="sDoubleTitle__title">
+				<h2 class="sTitle"><span>Новостройки</span></h2>
+				<p class="sSubtitle">Найдите недвижимость на побережье Персидского заливана знаменитом острове Пальма Джумейра для комфортной красивой жизни и инвестиций</p>
+			</div>
+			<div class="sDoubleTitle__action">
+				<div class="sArrows">
+					<button class="sArrows__item prev sHotelsPrev"></button>
+					<button class="sArrows__item next sHotelsNext"></button>
+				</div>
+			</div>
+		</div>
+		<div class="sHotels swiper">
+			<div class="swiper-wrapper">
+				{% for item in buildsList %}
+				<a href="#" class="sHotels__item swiper-slide">
+					<picture class="imageArea">
+						<img src="{{ item.gallery[0].path }}" alt="{{ item.title }}">
+					</picture>
+					<div class="sHotels__item-content">
+						<h3 class="sTitle" data-styles="cb fz2">{{ item.title }}</h3>
+						<p class="sHotels__item-description">{{ item.short }}</p>
+						<span class="sPrice" data-fx-currency>11500</span>
+					</div>
+				</a>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+{% endif %}
+{# Новые новостройки #}
+{% if buildsListNew|length %}
+<section>
+	<div class="container">
+		<div class="sDoubleTitle">
+			<div class="sDoubleTitle__title">
+				<h2 class="sTitle" data-styles="capt"><mark>30</mark> <span>новых небоскребов <br>в <mark>Palm Jumeira</mark></span></h2>
+			</div>
+			<div class="sDoubleTitle__action">
+				<a href="#" class="sButton">Посмотреть все</a>
+			</div>
+		</div>
+		<div class="sTowers">
+			{% for item in buildsListNew %}
+			<a href="#" class="sTowers__item">
+				<picture class="imageArea">
+					<img src="{{ item.gallery[0].path }}" alt="{{ item.title }}">
+				</picture>
+				<div class="sTowers__item-content">
+					<h3 class="sTitle" data-styles="cb fzs">{{ item.title }}</h3>
+				</div>
+			</a>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+{% endif %}
+{# недвижимость #}
+<section>
+	<div class="container">
+		<div class="sDoubleTitle__title">
+			<h2 class="sTitle"><span>Для кого предназначен этот район?</span></h2>
+		</div>
+		<div class="sTemplate">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, corporis.</p>
+		</div>
+		<div class="sImageGrid">
+			<div class="sImageGrid__item">
+				<img src="{{ '/assets/img/appart.png'|theme }}" alt="">
+			</div>
+			<div class="sImageGrid__item">
+				<img src="{{ '/assets/img/appart.png'|theme }}" alt="">
+			</div>
+		</div>
+	</div>
+</section>
+{# Места #}
+<section data-styles="overflow">
+	<div class="container">
+		<div class="sDoubleTitle">
+			<div class="sDoubleTitle__title">
+				<h2 class="sTitle" data-styles="fz3"><span>Места</span></h2>
+				<p class="sSubtitle" data-styles="full">На 150-тиметровом частном пляже вы найдете развлечения на любой вкус — теплая морская вода, водные виды спорта, шезлонги для принятия солнечных ванн. Проводите регулярные тренировки в тренажерном зале комплекса. После занятий спортом поддержите здоровье и красоту вашего тела в оздоровительном спа-салоне, сауне или хамаме. В ресторанах на территории Five Palm Jumeirah жители пробуют блюда кухонь разных стран в компании семьи и друзей. Резиденты плавают в 60-тиметровом infinity-бассейне и любуются на сверкающие на солнце небоскребы. Маленькие жители проводят время с друзьями на игровых площадках и в детском клубе.</p>
+			</div>
+		</div>
+		<div class="sTopSwiper swiper">
+			<div class="swiper-wrapper">
+				{% for item in configContent.gallery.list %}
+				<div class="sTopSwiper__item swiper-slide">
+					<div class="sTopSwiper__image imageArea">
+						<img src="{{ item.image.path }}" alt="">
+					</div>
+					<div class="sTopSwiper__content">
+						<div class="sTitle" data-styles="fzs"><span>Аквапарк <br><mark>Aquarello</mark></span></div>
+						<div class="sTopSwiper__content-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam distinctio molestias quod sit repellendus cumque libero voluptas officiis doloremque eos delectus dolor omnis illo adipisci, voluptates quos architecto reiciendis fugiat.</div>
+						<div class="sArrows">
+							<button class="sArrows__item prev sHotelsPrev"></button>
+							<button class="sArrows__item next sHotelsNext"></button>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+{# Месяц и лучшие предложения квартиры #}
+{% if appartsList|length %}
+<section>
+	<div class="container">
+		<div class="sDoubleTitle" data-styles="spectext">
+			<div class="sDoubleTitle__title">
+				<h2 class="sTitle" data-styles="capt"><mark>Январь</mark> <span>лучшие <br>предложения</span></h2>
+				<p class="sSubtitle">Найдите недвижимость на побережье Персидского залива на знаменитом острове Пальма Джумейра для комфортнойи красивой жизни и инвестиций</p>
+			</div>
+			<div class="sDoubleTitle__action">
+				<div class="sTitle" data-styles="capt spansmall"><mark>125</mark> <span>Объектов были <br>выделены самыми <br>высокими баллами</span></div>
+			</div>
+		</div>
+		<div class="sCatalog" data-styles="mainy" data-fx-upload data-fx-upload-type="semiauto" data-fx-upload-start="5" data-fx-upload-step="4">
+			{% for item in appartsList %}
+			<a href="/catalog/{{ item.id }}" class="sCatalog__item" data-fx-clone="10" data-fx-upload-item>
+				<picture class="imageArea">
+					<source srcset="{{ item.gallery[0].thumbUrl(900, auto, { mode: 'exact', quality: 100, extension: 'webp' }) }}" type="image/webp">
+					<img src="{{ item.gallery[0].thumbUrl(900, auto, { mode: 'exact', quality: 100, extension: 'jpg' }) }}" loading="lazy" alt="{{ item.title }}">
+				</picture>
+				<div class="sCatalog__item-content">
+					<h2 class="sTitle" data-styles="cb fzs">{{ item.title }}</h2>
+					<ul class="sParams">
+						<li class="sParams__item thisArea">{{ item.param_area }}</li>
+						<li class="sParams__item thisBed">{{ item.param_bed }}</li>
+						<li class="sParams__item thisLoc">{{ item.param_loc }}</li>
+					</ul>
+					<p class="sCatalog__item-description">{{ item.short }}</p>
+					<div class="sCatalog__item-bottom">
+						<span class="sPrice" data-styles="fz3" data-fx-currency>{{ item.price }}</span>
+					</div>
+				</div>
+			</a>
+			{% endfor %}
+			<button data-fx-upload-more class="sButton">Показать все</button>
+		</div>
+	</div>
+</section>
+{% endif %}
+{# Обратная связь 2 #}
+<section data-styles="overflow bggradien1 mp">
+	<div class="container">
+		<div class="sCallback thisBlue">
+			<form action="#" class="sCallback__form">
+				<h2 class="sTitle" data-styles="fz1"><span>Наша команда поможет вам выбрать подходящее жилье на <mark>Palm Jumeira</mark></span></h2>
+				<div class="sCallback__form-body">
+					<input type="text" placeholder="Ваше имя">
+					<input type="tel" placeholder="Номер телефона">
+					<button type="submit" class="sButton">Написать</button>
+				</div>
+				<p class="sCallback__form-rules">Отправляя данную форму вы соглашаетесь с политикой конфиденциальности</p>
+			</form>
+			<div class="sCallback__image">
+				<img src="{{ '/assets/img/face.png'|theme }}" alt="">
+			</div>
+		</div>
+		{% if configContent.about.text %}
+		<div class="sAbout">
+			<h2 class="sTitle" data-styles="fz2"><span>{{ configContent.about.title }}</span></h2>
+			<div class="sAbout__text thisShort">
+				{{ configContent.about.text|raw }}
+			</div>
+			<button class="sAbout__more">Показать полностью</button>
+		</div>
+		{% endif %}
+	</div>
+</section>

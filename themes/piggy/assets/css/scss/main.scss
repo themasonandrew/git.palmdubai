@@ -54,6 +54,11 @@ section {
 	.container {
 		display: flex;
 		flex-direction: column;
+
+		&.thismargin {
+			margin-top: 40px;
+			margin-bottom: 40px;
+		}
 	}
 	&[data-styles*='overflow'] {
 		overflow: hidden;
@@ -368,6 +373,14 @@ section {
 	}
 	&:hover {
 		opacity: 0.7;
+	}
+}
+
+.sTemplate {
+	color: $cw;
+
+	>*+* {
+		margin-top: 12px;
 	}
 }
 
@@ -711,6 +724,47 @@ section {
 			a {
 				color: #fff;
 			}
+		}
+	}
+}
+
+.sImage {
+	display: flex;
+	width: 100%;
+	height: 520px;
+	border-radius: 12px;
+	overflow: hidden;
+	img {
+		display: flex;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+.sImageGrid {
+	margin-top: 40px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+
+	&__item {
+		position: relative;
+		display: flex;
+		width: calc(65% - 8px);
+		height: 420px;
+		overflow: hidden;
+		border-radius: 12px;
+
+		&:nth-child(2),
+		&:nth-child(3) {
+			width: calc(35% - 8px);
+		}
+
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
 		}
 	}
 }
