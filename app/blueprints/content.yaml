@@ -211,10 +211,11 @@ fields:
                     commentAbove: '[Для кого] название'
                     span: full
                     type: text
-                who_subtitle:
-                    commentAbove: '[Для кого] подзаголовок'
+                who_text:
+                    commentAbove: '[Для кого] текст'
                     span: full
-                    type: text
+                    type: richeditor
+                    size: small
                     attributes:
                         maxlength: '1000'
                 who_images:
