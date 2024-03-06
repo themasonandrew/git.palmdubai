@@ -174,19 +174,18 @@ sitemapChangefreq = "daily"
 {# недвижимость #}
 <section>
 	<div class="container">
-		<div class="sDoubleTitle__title">
-			<h2 class="sTitle"><span>Для кого предназначен этот район?</span></h2>
-		</div>
-		<div class="sTemplate">
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, corporis.</p>
+		<div class="sDoubleTitle">
+			<div class="sDoubleTitle__title">
+				<h2 class="sTitle"><span>{{ configContent.about.who_title|raw }}</span></h2>
+				<p class="sSubtitle">{{ configContent.about.who_subtitle }}</p>
+			</div>
 		</div>
 		<div class="sImageGrid">
+			{% for item in configContent.about.who_images %}
 			<div class="sImageGrid__item">
-				<img src="{{ '/assets/img/appart.png'|theme }}" alt="">
+				<img src="{{ item.path }}" alt="">
 			</div>
-			<div class="sImageGrid__item">
-				<img src="{{ '/assets/img/appart.png'|theme }}" alt="">
-			</div>
+			{% endfor %}
 		</div>
 	</div>
 </section>

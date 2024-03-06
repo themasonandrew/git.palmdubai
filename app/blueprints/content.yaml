@@ -207,6 +207,22 @@ fields:
                     type: fileupload
                     mode: image
                     maxFiles: 4
+                who_title:
+                    commentAbove: '[Для кого] название'
+                    span: full
+                    type: text
+                who_subtitle:
+                    commentAbove: '[Для кого] подзаголовок'
+                    span: full
+                    type: text
+                    attributes:
+                        maxlength: '1000'
+                who_images:
+                    commentAbove: '[Для кого] 2 изображения'
+                    span: full
+                    type: fileupload
+                    mode: image
+                    maxFiles: 4
                 list:
                     type: repeater
                     form:
