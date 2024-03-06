@@ -32,89 +32,93 @@ sitemapChangefreq = "daily"
 ?>
 ==
 {% put breads %}<li><a href="/blog">Блог</a></li>{% endput %}
-<div class="sBlogPage">
-	<article class="sBlogPage__content" itemscope itemtype="https://schema.org/Article">
-		<h2 class="sTitle" data-styles="fz3 left nomargin stroke" itemprop="name">{{ currentPost.title }}</h2>
-		{% if currentPost.short_description %}
-		<div class="sBlogPage__short" itemprop="description">{{ currentPost.short_description|raw }}</div>
-		{% endif %}
-		{% set structureIndex = 1 %}
-		<div class="sStructure">
-			<h3 class="sTitle" data-styles="fz4 left nomargin">Содержание статьи:</h3>
-			{% placeholder structurePlaceholder %}
-			{% for item in currentPost.structure %}
-			{% if item.title %}
-			<a href="/blog/{{currentPost.slug}}#structure{{structureIndex}}" class="sStructure__item"><span class="sStructure__item-number">{{ structureIndex }}.</span> {{ item.title }}</a>
-			{% set structureIndex=structureIndex + 1 %}
-			{% endif %}
-			{% endfor %}
-		</div>
-		<div class="sTemplate" itemprop="articleBody">
-			{% set structureIndex = 1 %}
-			{% for item in currentPost.structure %}
-			{% if item.title %}
-			<h3 id="structure{{ structureIndex }}">{{ item.title }}</h3>
-			{% set structureIndex=structureIndex + 1 %}
-			{% endif %}
-			{% if item.text %}
-			{{ item.text|raw }}
-			{% endif %}
-			{% if item.gallery %}
-			<div class="sTemplateGallery swiper" data-swiper="templategallery{{structureIndex}}">
-				<div class="swiper-wrapper">
-					{% for gal in item.gallery %}
-					<div class="swiper-slide" data-fancybox="gallery{{structureIndex}}" data-src="{{ gal|media }}" data-caption="{{ currentPost.title }}">
-						<img src="{{ gal|media }}" alt="{{ currentPost.title }}">
+<section>
+	<div class="container">
+		<div class="sBlogPage">
+			<article class="sBlogPage__content" itemscope itemtype="https://schema.org/Article">
+				<h2 class="sTitle" data-styles="fz3 left nomargin stroke" itemprop="name">{{ currentPost.title }}</h2>
+				{% if currentPost.short_description %}
+				<div class="sBlogPage__short" itemprop="description">{{ currentPost.short_description|raw }}</div>
+				{% endif %}
+				{% set structureIndex = 1 %}
+				<div class="sStructure">
+					<h3 class="sTitle" data-styles="fz4 left nomargin">Содержание статьи:</h3>
+					{% placeholder structurePlaceholder %}
+					{% for item in currentPost.structure %}
+					{% if item.title %}
+					<a href="/blog/{{currentPost.slug}}#structure{{structureIndex}}" class="sStructure__item"><span class="sStructure__item-number">{{ structureIndex }}.</span> {{ item.title }}</a>
+					{% set structureIndex=structureIndex + 1 %}
+					{% endif %}
+					{% endfor %}
+				</div>
+				<div class="sTemplate" itemprop="articleBody">
+					{% set structureIndex = 1 %}
+					{% for item in currentPost.structure %}
+					{% if item.title %}
+					<h3 id="structure{{ structureIndex }}">{{ item.title }}</h3>
+					{% set structureIndex=structureIndex + 1 %}
+					{% endif %}
+					{% if item.text %}
+					{{ item.text|raw }}
+					{% endif %}
+					{% if item.gallery %}
+					<div class="sTemplateGallery swiper" data-swiper="templategallery{{structureIndex}}">
+						<div class="swiper-wrapper">
+							{% for gal in item.gallery %}
+							<div class="swiper-slide" data-fancybox="gallery{{structureIndex}}" data-src="{{ gal|media }}" data-caption="{{ currentPost.title }}">
+								<img src="{{ gal|media }}" alt="{{ currentPost.title }}">
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+					{% if item.gallery|length > 1 %}
+					<div class="sTemplateGalleryThumbs swiper" data-swiper="templategallery{{structureIndex}}">
+						<div class="swiper-wrapper">
+							{% for gal in item.gallery %}
+							<div class="swiper-slide imageArea">
+								<img src="{{ gal|media }}" alt="">
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+					{% endif %}
+					{% endif %}
+					{% endfor %}
+				</div>
+				{% if currentPost.categories %}
+				<div class="sTags">
+					{% for item in currentPost.categories %}
+					<a href="/blog?filter={{ item.slug }}" class="sTags__tag">{{ item.title }}</a>
+					{% endfor %}
+				</div>
+				{% endif %}
+				<div class="sBlogPage__details">
+					<time class="sIcon" data-styles="icon-date" datetime="{{ post.datetime|date('Y-m-d H:i:s')}}" data-fx-time-format="DD MMMM YYYY"></time>
+					<span class="sIcon" data-styles="icon-views">{{ currentPost.views }}</span>
+				</div>
+				<link itemprop="url" href="/blog/{{ currentPost.slug }}">
+				<link itemprop="image" href="{{ currentPost.preview.path }}">
+				<meta itemprop="headline" content="{{ currentPost.title }}">
+				<meta itemprop="datePublished" content="{{ currentPost.datetime }}">
+			</article>
+			<aside class="sBlogAside">
+				<h2 class="sTitle" data-styles="fz3 stroke left nomargin">Последние публикации</h2>
+				<div class="sBlogAside__list">
+					{% for item in postsLast %}
+					<div class="sBlogAside__item">
+						<a href="/blog/{{ item.slug }}" class="sBlogAside__item-title">{{ item.title }}</a>
+						<div class="sBlogAside__item-description sTemplate">{{ item.short_description|striptags }}</div>
+						<div class="sBlogAside__item-details">
+							<time class="sIcon" data-styles="icon-date" datetime="{{ item.datetime|date('Y-m-d H:i:s')}}" data-fx-time-format="DD MMMM YYYY"></time>
+							<span class="sIcon" data-styles="icon-views">{{ item.views }}</span>
+						</div>
 					</div>
 					{% endfor %}
 				</div>
-			</div>
-			{% if item.gallery|length > 1 %}
-			<div class="sTemplateGalleryThumbs swiper" data-swiper="templategallery{{structureIndex}}">
-				<div class="swiper-wrapper">
-					{% for gal in item.gallery %}
-					<div class="swiper-slide imageArea">
-						<img src="{{ gal|media }}" alt="">
-					</div>
-					{% endfor %}
-				</div>
-			</div>
-			{% endif %}
-			{% endif %}
-			{% endfor %}
+			</aside>
 		</div>
-		{% if currentPost.categories %}
-		<div class="sTags">
-			{% for item in currentPost.categories %}
-			<a href="/blog?filter={{ item.slug }}" class="sTags__tag">{{ item.title }}</a>
-			{% endfor %}
-		</div>
-		{% endif %}
-		<div class="sBlogPage__details">
-			<time class="sIcon" data-styles="icon-date" datetime="{{ post.datetime|date('Y-m-d H:i:s')}}" data-fx-time-format="DD MMMM YYYY"></time>
-			<span class="sIcon" data-styles="icon-views">{{ currentPost.views }}</span>
-		</div>
-		<link itemprop="url" href="/blog/{{ currentPost.slug }}">
-		<link itemprop="image" href="{{ currentPost.preview.path }}">
-		<meta itemprop="headline" content="{{ currentPost.title }}">
-		<meta itemprop="datePublished" content="{{ currentPost.datetime }}">
-	</article>
-	<aside class="sBlogAside">
-		<h2 class="sTitle" data-styles="fz3 stroke left nomargin">Последние публикации</h2>
-		<div class="sBlogAside__list">
-			{% for item in postsLast %}
-			<div class="sBlogAside__item">
-				<a href="/blog/{{ item.slug }}" class="sBlogAside__item-title">{{ item.title }}</a>
-				<div class="sBlogAside__item-description sTemplate">{{ item.short_description|striptags }}</div>
-				<div class="sBlogAside__item-details">
-					<time class="sIcon" data-styles="icon-date" datetime="{{ item.datetime|date('Y-m-d H:i:s')}}" data-fx-time-format="DD MMMM YYYY"></time>
-					<span class="sIcon" data-styles="icon-views">{{ item.views }}</span>
-				</div>
-			</div>
-			{% endfor %}
-		</div>
-	</aside>
-</div>
+	</div>
+</section>
 <section data-styles="overflow">
 	<div class="container">
 		<div class="sCallback thisBlue">
