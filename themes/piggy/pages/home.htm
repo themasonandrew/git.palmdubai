@@ -341,11 +341,11 @@ sitemapChangefreq = "daily"
 				<img src="{{ '/assets/img/face.png'|theme }}" alt="">
 			</div>
 		</div>
-		{% if configContent.about.text %}
+		{% if configText.about_home.text %}
 		<div class="sAbout">
-			<h2 class="sTitle" data-styles="fz2"><span>{{ configContent.about.title }}</span></h2>
+			<h2 class="sTitle" data-styles="fz2"><span>{{ configText.about_home.title }}</span></h2>
 			<div class="sAbout__text thisShort">
-				{{ configContent.about.text|raw }}
+				{{ configText.about_home.text|raw }}
 			</div>
 			<button class="sAbout__more">Показать полностью</button>
 		</div>
