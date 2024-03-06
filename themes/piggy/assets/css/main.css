@@ -4487,7 +4487,25 @@ section[data-styles*=separator] .container {
 }
 
 .sTemplate {
+  font-size: 1.5rem;
   color: #ffffff;
+}
+.sTemplate h2,
+.sTemplate h3,
+.sTemplate h4:not(:first-child) {
+  margin-top: 24px !important;
+}
+.sTemplate h2 {
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+.sTemplate h3 {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+.sTemplate h4 {
+  font-size: 2rem;
+  font-weight: bold;
 }
 .sTemplate > * + * {
   margin-top: 12px;
@@ -6761,8 +6779,11 @@ section[data-styles*=separator] .container {
   -webkit-align-items: flex-start;
       -ms-flex-align: start;
           align-items: flex-start;
-  padding: 24px 32px;
+  padding: 0 32px;
   border-radius: 12px;
+}
+.sStructure .sTitle {
+  font-size: 1.6rem !important;
 }
 .sStructure .sTitle + * {
   margin-top: 16px;

@@ -377,8 +377,26 @@ section {
 }
 
 .sTemplate {
+	font-size: 1.5rem;
 	color: $cw;
 
+	h2,
+	h3,
+	h4:not(:first-child) {
+		margin-top: 24px !important;
+	}
+	h2 {
+		font-size: 2.4rem;
+		font-weight: bold;
+	}
+	h3 {
+		font-size: 2.2rem;
+		font-weight: bold;
+	}
+	h4  {
+		font-size: 2.0rem;
+		font-weight: bold;
+	}
 	> * + * {
 		margin-top: 12px;
 	}
@@ -2223,9 +2241,11 @@ section {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	padding: 24px 32px;
+	padding: 0 32px;
 	border-radius: 12px;
-
+	.sTitle {
+		font-size: 1.6rem !important;
+	}
 	.sTitle + * {
 		margin-top: 16px;
 	}
