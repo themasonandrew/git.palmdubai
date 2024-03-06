@@ -16,6 +16,7 @@ sitemapChangefreq = "daily"
 	function onStart() {
 		date_default_timezone_set('Europe/Moscow');
 		$postsList = Post::query()->where('active', true)->where('datetime', '<', now())->orderByDesc('datetime')->get();
+		$this['postsList'] = $postsList;
 	}
 ?>
 ==
