@@ -190,7 +190,7 @@ fields:
                     span: full
                     type: fileupload
                     mode: image
-                    maxFiles: 2
+                    maxFiles: 4
                 list:
                     type: repeater
                     form:
