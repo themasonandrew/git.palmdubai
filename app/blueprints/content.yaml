@@ -115,3 +115,93 @@ fields:
                                 type: fileupload
                                 mode: image
                                 maxFiles: 1
+    ##
+    about:
+        tab: О нас
+        type: nestedform
+        showPanel: false
+        form:
+            fields:
+                welcome_title:
+                    commentAbove: '[Гл.] название'
+                    span: full
+                    type: text
+                welcome_subtitle:
+                    commentAbove: '[Гл.] подзаголовок'
+                    span: full
+                    type: text
+                    attributes:
+                        maxlength: '1000'
+                welcome_image:
+                    commentAbove: '[Гл.] изображение'
+                    span: full
+                    type: fileupload
+                    mode: image
+                    maxFiles: 1
+                obraz_title:
+                    commentAbove: '[Образ жизни] название'
+                    span: full
+                    type: text
+                obraz_subtitle:
+                    commentAbove: '[Образ жизни] подзаголовок'
+                    span: full
+                    type: text
+                    attributes:
+                        maxlength: '1000'
+                obraz_text:
+                    commentAbove: '[Образ жизни] текст'
+                    span: full
+                    type: richeditor
+                    size: small
+                    attributes:
+                        maxlength: '1000'
+                obraz_images:
+                    commentAbove: '[Образ жизни] 2 изображения'
+                    span: full
+                    type: fileupload
+                    mode: image
+                    maxFiles: 2
+                infra_title:
+                    commentAbove: '[Образ жизни] название'
+                    span: full
+                    type: text
+                infra_subtitle:
+                    commentAbove: '[Образ жизни] подзаголовок'
+                    span: full
+                    type: text
+                    attributes:
+                        maxlength: '1000'
+                infra_pre:
+                    commentAbove: '[Образ жизни] текст'
+                    span: full
+                    type: richeditor
+                    size: small
+                    attributes:
+                        maxlength: '1000'
+                infra_text:
+                    commentAbove: '[Образ жизни] текст'
+                    span: full
+                    type: richeditor
+                    size: small
+                    attributes:
+                        maxlength: '1000'
+                infra_images:
+                    commentAbove: '[Образ жизни] 2 изображения'
+                    span: full
+                    type: fileupload
+                    mode: image
+                    maxFiles: 2
+                list:
+                    type: repeater
+                    form:
+                        fields:
+                            title:
+                                commentAbove: Название
+                                span: full
+                                type: text
+                            image:
+                                commentAbove: Изображение
+                                span: full
+                                type: fileupload
+                                mode: image
+                                maxFiles: 1
