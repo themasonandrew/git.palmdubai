@@ -1,0 +1,16 @@
+columns:
+    title:
+        label: Название
+        type: text
+        searchable: true
+        sortable: true
+    sort_order:
+        label: Порядок
+        type: text
+        searchable: true
+        sortable: true
+    active:
+        label: Активно
+        type: switch
+        searchable: false
+        sortable: true

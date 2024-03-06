@@ -1,0 +1,10 @@
+name: Categories
+form: $/piggy/blog/models/category/fields.yaml
+modelClass: Piggy\Blog\Models\Category
+defaultRedirect: piggy/blog/categories
+create:
+    redirect: 'piggy/blog/categories/update/:id'
+    redirectClose: piggy/blog/categories
+update:
+    redirect: piggy/blog/categories
+    redirectClose: piggy/blog/categories

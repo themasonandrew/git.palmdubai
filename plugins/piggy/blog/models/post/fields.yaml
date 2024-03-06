@@ -1,0 +1,100 @@
+fields:
+    title:
+        comment: Название | h1
+        span: auto
+        type: text
+        required: true
+    slug:
+        comment: Ссылка
+        span: auto
+        type: text
+        required: true
+        preset:
+            field: title
+            type: slug
+    active:
+        label: Активно
+        span: auto
+        type: switch
+tabs:
+    fields:
+        subtitle: 
+            comment: 'Подзаголовок | h2'
+            span: auto
+            type: text
+            tab: Основное
+        datetime:
+            comment: 'Дата публикации'
+            mode: datetime
+            span: auto
+            type: datepicker
+            tab: Основное
+        short_description:
+            comment: 'Короткое описание'
+            size: large
+            span: auto
+            type: richeditor
+            tab: Основное
+        categories:
+            comment: Категории
+            nameFrom: title
+            descriptionFrom: description
+            span: auto
+            type: relation
+            tab: Основное
+        preview:
+            comment: Превью
+            mode: image
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: auto
+            type: fileupload
+            tab: Основное
+        structure:
+            type: repeater
+            span: full
+            tab: Структура и контент
+            form:
+                fields:
+                    title:
+                        comment: Название для структуры | h3
+                        type: text
+                    text:
+                        comment: Содержание блока | h4 и ниже
+                        type: richeditor
+                        size: huge
+                    gallery:
+                        comment: Галерея
+                        type: mediafinder
+                        mode: image
+                        maxItems: 100
+        meta_title:
+            comment: 'Meta Title'
+            span: full
+            type: text
+            attributes:
+                maxlength: '99999'
+            tab: Seo
+        meta_description:
+            comment: 'Meta Description'
+            span: full
+            type: text
+            attributes:
+                maxlength: '99999'
+            tab: Seo
+        meta_robots:
+            comment: 'Meta Robots'
+            span: auto
+            type: text
+            attributes:
+                maxlength: '99999'
+            tab: Seo
+        meta_keywords:
+            comment: 'Meta Keywords'
+            span: auto
+            type: text
+            attributes:
+                maxlength: '99999'
+            tab: Seo

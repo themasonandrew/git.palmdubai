@@ -1,0 +1,10 @@
+name: Posts
+form: $/piggy/blog/models/post/fields.yaml
+modelClass: Piggy\Blog\Models\Post
+defaultRedirect: piggy/blog/posts
+create:
+    redirect: 'piggy/blog/posts/update/:id'
+    redirectClose: piggy/blog/posts
+update:
+    redirect: piggy/blog/posts
+    redirectClose: piggy/blog/posts

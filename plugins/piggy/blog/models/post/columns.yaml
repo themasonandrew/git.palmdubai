@@ -1,0 +1,30 @@
+columns:
+    title:
+        label: 'Название'
+        type: text
+        searchable: true
+        sortable: true
+    categories_counter:
+        label: 'Категории'
+        type: text
+        relation: categories
+        select: title
+        searchable: false
+        sortable: false
+    getpreview:
+        label: 'Превью'
+        type: partial
+        path: ~/plugins/piggy/blog/models/post/_getpreview_column.php
+        searchable: false
+        sortable: false
+    datetime:
+        label: 'Дата'
+        type: datetime
+        format: jS F Y в H:i
+        searchable: true
+        sortable: true
+    active:
+        label: 'Активно'
+        type: switch
+        searchable: false
+        sortable: true

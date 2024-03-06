@@ -1,0 +1,40 @@
+fields:
+    title:
+        comment: Название
+        span: left
+        type: text
+        required: true
+    slug:
+        comment: Ссылка
+        span: right
+        type: text
+        preset:
+            field: title
+            type: slug
+        required: true
+    active:
+        label: Активно
+        span: auto
+        type: switch
+tabs:
+    fields:
+        meta_title:
+            comment: Meta Title
+            span: full
+            type: text
+            tab: Seo
+        meta_description:
+            comment: Meta Description
+            span: full
+            type: text
+            tab: Seo
+        meta_keywords:
+            comment: Meta Keywords
+            span: left
+            type: text
+            tab: Seo
+        meta_robots:
+            comment: Meta Robots
+            span: right
+            type: text
+            tab: Seo
