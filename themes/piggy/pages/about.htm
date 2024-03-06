@@ -13,12 +13,12 @@ sitemapChangefreq = "daily"
 	<div class="container">
 		<div class="sDoubleTitle">
 			<div class="sDoubleTitle__title">
-				<h2 class="sTitle"><span>О <mark>Palm Jumeirah</mark></span></h2>
-				<p class="sSubtitle">Найдите недвижимость на побережье Персидского заливана знаменитом острове Пальма Джумейра для комфортной красивой жизни и инвестиций</p>
+				<h2 class="sTitle"><span>{{ configContent.about.welcome_title|raw }}</span></h2>
+				<p class="sSubtitle">{{ configContent.about.welcome_subtitle }}</p>
 			</div>
 		</div>
 		<div class="sImage">
-			<img src="{{ '/assets/img/appart.png'|theme }}" alt="">
+			<img src="{{ configContent.about.welcome_image.path }}" alt="">
 		</div>
 	</div>
 </section>
@@ -27,20 +27,19 @@ sitemapChangefreq = "daily"
 	<div class="container">
 		<div class="sDoubleTitle">
 			<div class="sDoubleTitle__title">
-				<h2 class="sTitle"><span>Образ жизни</span></h2>
-				<p class="sSubtitle">Найдите недвижимость на побережье Персидского заливана знаменитом острове Пальма Джумейра для комфортной красивой жизни и инвестиций</p>
+				<h2 class="sTitle"><span>{{ configContent.about.obraz_title|raw }}</span></h2>
+				<p class="sSubtitle">{{ configContent.about.obraz_subtitle|raw }}</p>
 			</div>
 		</div>
 		<div class="sTemplate">
-			<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid, voluptatum!</p>
+			{{ configContent.about.obraz_text|raw }}
 		</div>
 		<div class="sImageGrid">
+		{% for item in configContent.about.obraz_images %}
 			<div class="sImageGrid__item">
-				<img src="{{ '/assets/img/appart.png'|theme }}" alt="">
+				<img src="{{ item.path }}" alt="">
 			</div>
-			<div class="sImageGrid__item">
-				<img src="{{ '/assets/img/appart.png'|theme }}" alt="">
-			</div>
+		{% endfor %}
 		</div>
 	</div>
 </section>
@@ -49,11 +48,12 @@ sitemapChangefreq = "daily"
 	<div class="container">
 		<div class="sDoubleTitle">
 			<div class="sDoubleTitle__title">
-				<h2 class="sTitle"><span>Инфраструктура</span></h2>
+				<h2 class="sTitle"><span>{{ configContent.about.infra_title|raw }}</span></h2>
+				<p class="sSubtitle">{{ configContent.about.infra_subtitle }}</p>
 			</div>
 		</div>
 		<div class="sTemplate">
-			<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid, voluptatum!</p>
+			{{ configContent.about.infra_pre|raw }}
 		</div>
 	</div>
 	<div class="container full np thismargin">
@@ -61,21 +61,14 @@ sitemapChangefreq = "daily"
 	</div>
 	<div class="container">
 		<div class="sTemplate">
-			<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid, voluptatum!</p>
+			{{ configContent.about.infra_text|raw }}
 		</div>
 		<div class="sImageGrid">
+			{% for item in configContent.about.infra_images %}
 			<div class="sImageGrid__item">
-				<img src="{{ '/assets/img/appart.png'|theme }}" alt="">
+				<img src="{{ item.path }}" alt="">
 			</div>
-			<div class="sImageGrid__item">
-				<img src="{{ '/assets/img/appart.png'|theme }}" alt="">
-			</div>
-			<div class="sImageGrid__item">
-				<img src="{{ '/assets/img/appart.png'|theme }}" alt="">
-			</div>
-			<div class="sImageGrid__item">
-				<img src="{{ '/assets/img/appart.png'|theme }}" alt="">
-			</div>
+			{% endfor %}
 		</div>
 	</div>
 </section>
@@ -95,6 +88,24 @@ sitemapChangefreq = "daily"
 			<div class="sCallback__image">
 				<img src="{{ '/assets/img/book.png'|theme }}" alt="">
 			</div>
+		</div>
+	</div>
+</section>
+{# Недвижимость #}
+<section>
+	<div class="container">
+		<div class="sDoubleTitle">
+			<div class="sDoubleTitle__title">
+				<h2 class="sTitle"><span>{{ configContent.about.nedv_title|raw }}</span></h2>
+				<p class="sSubtitle">{{ configContent.about.nedv_subtitle }}</p>
+			</div>
+		</div>
+		<div class="sImageGrid thisReverse">
+			{% for item in configContent.about.nedv_images %}
+			<div class="sImageGrid__item">
+				<img src="{{ item.path }}" alt="">
+			</div>
+			{% endfor %}
 		</div>
 	</div>
 </section>
@@ -139,7 +150,7 @@ sitemapChangefreq = "daily"
 	<div class="container">
 		<div class="sDoubleTitle">
 			<div class="sDoubleTitle__title">
-				<h2 class="sTitle" data-styles="capt"><mark>30</mark> <span>новых небоскребов <br>в <mark>Palm Jumeira</mark></span></h2>
+				<h2 class="sTitle" data-styles="capt"><mark>{{ buildsListNew|length }}</mark> <span>новых небоскребов <br>в <mark>Palm Jumeira</mark></span></h2>
 			</div>
 			<div class="sDoubleTitle__action">
 				<a href="#" class="sButton">Посмотреть все</a>

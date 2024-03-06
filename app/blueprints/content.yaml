@@ -162,31 +162,47 @@ fields:
                     mode: image
                     maxFiles: 2
                 infra_title:
-                    commentAbove: '[Образ жизни] название'
+                    commentAbove: '[Инфраструктура] название'
                     span: full
                     type: text
                 infra_subtitle:
-                    commentAbove: '[Образ жизни] подзаголовок'
+                    commentAbove: '[Инфраструктура] подзаголовок'
                     span: full
                     type: text
                     attributes:
                         maxlength: '1000'
                 infra_pre:
-                    commentAbove: '[Образ жизни] текст'
+                    commentAbove: '[Инфраструктура] текст'
                     span: full
                     type: richeditor
                     size: small
                     attributes:
                         maxlength: '1000'
                 infra_text:
-                    commentAbove: '[Образ жизни] текст'
+                    commentAbove: '[Инфраструктура] текст'
                     span: full
                     type: richeditor
                     size: small
                     attributes:
                         maxlength: '1000'
                 infra_images:
-                    commentAbove: '[Образ жизни] 2 изображения'
+                    commentAbove: '[Инфраструктура] 4 изображения'
+                    span: full
+                    type: fileupload
+                    mode: image
+                    maxFiles: 4
+                nedv_title:
+                    commentAbove: '[Недвижимость] название'
+                    span: full
+                    type: text
+                nedv_subtitle:
+                    commentAbove: '[Недвижимость] подзаголовок'
+                    span: full
+                    type: text
+                    attributes:
+                        maxlength: '1000'
+                nedv_images:
+                    commentAbove: '[Недвижимость] 4 изображения'
                     span: full
                     type: fileupload
                     mode: image
