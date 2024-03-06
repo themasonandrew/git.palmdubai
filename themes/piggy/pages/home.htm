@@ -9,22 +9,6 @@ sitemapActive = 1
 sitemapPriority = 1.0
 sitemapChangefreq = "daily"
 ==
-<?php
-	use Piggy\Catalog\Models\Appart;
-	use Piggy\Catalog\Models\Build;
-
-	function onStart() {
-		$appartsList = Appart::query()->where('active', true)->orderBy('sort_order')->get();
-		$this['appartsList'] = $appartsList;
-
-		$buildsList = Build::query()->where('active', true)->orderBy('sort_order')->get();
-		$this['buildsList'] = $buildsList;
-
-		$buildsListNew = Build::query()->where('active', true)->where('new', true)->orderBy('sort_order')->get();
-		$this['buildsListNew'] = $buildsListNew;
-	}
-?>
-==
 {# Карта #}
 <section class="sMap">
 	<div class="sMap__wrap">
