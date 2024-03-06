@@ -9,6 +9,16 @@ sitemapActive = 1
 sitemapPriority = 1.0
 sitemapChangefreq = "daily"
 ==
+<?php
+	use Piggy\Blog\Models\Category;
+	use Piggy\Blog\Models\Post;
+
+	function onStart() {
+		date_default_timezone_set('Europe/Moscow');
+		$postsList = Post::query()->where('active', true)->where('datetime', '<', now())->orderByDesc('datetime')->get();
+	}
+?>
+==
 <section>
 	<div class="container">
 		<div class="sDoubleTitle">
@@ -17,16 +27,19 @@ sitemapChangefreq = "daily"
 			</div>
 		</div>
 		<div class="sPlaces thisCol">
-			<a href="#" class="sPlaces__item" data-fx-clone="10">
+			{% for post in postsList %}
+			<a href="/blog/{{ post.slug }}" class="sPlaces__item">
 				<picture class="imageArea">
-					<img src="{{ '/assets/img/appart.png'|theme }}" alt="">
+					<source srcset="{{ post.preview.thumbUrl(900, auto, { mode: 'exact', quality: 100, extension: 'webp' }) }}" type="image/webp">
+					<img src="{{ post.preview.thumbUrl(900, auto, { mode: 'exact', quality: 100, extension: 'jpg' }) }}" loading="lazy" alt="{{ post.title }}">
 				</picture>
 				<div class="sPlaces__item-content">
-					<h3 class="sTitle" data-styles="cb fz2">Serenia Living</h3>
-					<p class="sPlaces__item-description">Современная двухэтажная вилла с 3-мя спальнями площадью 681 м² на острове Palm Jumeirah. Здание из светлого камня выполнено в традиционном восточном стиле с арочными окнами, колоннами и резным</p>
+					<h3 class="sTitle" data-styles="cb fz2">{{ post.title }}</h3>
+					<p class="sPlaces__item-description">{{ post.short_description|striptags }}</p>
 					<span class="sPlaces__item-more">Читать полностью</span>
 				</div>
 			</a>
+			{% endfor %}
 		</div>
 	</div>
 </section>
