@@ -5648,6 +5648,9 @@ section[data-styles*=separator] .container {
   letter-spacing: 1px;
 }
 
+.sPlaces {
+  width: 100%;
+}
 .sPlaces__item {
   width: 420px;
   display: -webkit-box;
